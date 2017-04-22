@@ -1,0 +1,29 @@
+{
+  "name": "app-training",
+  "version": "1.0.0.",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui": "^0.4.0",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0",
+    "lodash": "^4.16.6",
+    "jasmine": "latest",
+    "karma": "^0.4.6",
+    "requirejs": "^2.3.2",
+    "less": "^2.7.1",
+    "jasmine-core": "jasmine#^2.5.2",
+    "angular-ui-router": "^0.3.2",
+    "angular-ui-grid": "^3.2.9",
+    "jquery": "^3.1.1",
+    "angular-animate": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "angular-ui-bootstrap": "^2.2.0",
+    "angular-bootstrap": "^2.2.0",
+    "tether": "^1.4.0",
+    "jquery-easing": "*"
+  },
+  "private": true,
+  "resolutions": {
+    "angular": "^1.5.8"
+  }
+}
