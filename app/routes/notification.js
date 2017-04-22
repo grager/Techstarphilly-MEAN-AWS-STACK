@@ -19,8 +19,8 @@ router.post('/sayHello',function(req, res) {
     let mailOptions = {
         sender: req.body.name,
         from: "techstarphillyinfo@gmail.com", // sender address
-        to: 'karenmou9501@gmail.com', // list of receivers
-        cc: 'mouqinyao@gmail.com',
+        to: 'techstarphilly@gmail.com', // list of receivers
+        cc: 'karenmou9501@gmail.com',
         subject: 'Questions about the TechStarPhilly', // Subject line
         html: '<p>'+ req.body.name +'</p>'+
               '<p>'+ req.body.email +'</p>'+ 
