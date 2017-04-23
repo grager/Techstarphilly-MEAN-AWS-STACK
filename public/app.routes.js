@@ -1,6 +1,6 @@
-var complianceApp = angular.module('complianceApp', ['homeModule', 'trainingModule', 'ui.router', 'ui.grid.exporter', 'ui.bootstrap']);
+var testPortalApp = angular.module('testPortalApp', ['ui.router']);
 
-complianceApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     
     $urlRouterProvider.otherwise('/home');
     
@@ -12,52 +12,38 @@ complianceApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/home/home.html'
         })
 
-        .state('training', {
-            url: '/training',
-            templateUrl: 'components/training/trainingView.html'
+        .state('htmlQuestions', {
+            url: '/htmlQuestions',
+            templateUrl: 'components/ui/htmlQuestions.html'
         })
 
-        .state('training.create', {
-            
-            url: '/create',
-            templateUrl: 'components/training/createTraining.html'
+        .state('cssQuestions', {
+            url: '/cssQuestions',
+            templateUrl: 'components/ui/cssQuestions.html'
         })
 
-        .state('training.edit', {
-            
-            url: '/edit/{referenceId}',
-            templateUrl: 'components/training/viewTraining.html',
-            controller: function($scope, $stateParams) {
-                // get the id
-                $scope.id = $stateParams.referenceId;
-   
-            }
+        .state('javascriptQuestions', {
+            url: '/javascriptQuestions',
+            templateUrl: 'components/ui/javascriptQuestions.html'
         })
 
-        .state('awareness', {
-            url: '/awareness',
-            templateUrl: 'components/awareness/awarenessView.html'
+        .state('jqueryQuestions', {
+            url: '/jqueryQuestions',
+            templateUrl: 'components/ui/jqueryQuestions.html'
         })
 
-        .state('curriculum', {
-            url: '/curriculum',
-            templateUrl: 'components/curriculum/curriculumView.html'
+        .state('angularjsQuestions', {
+            url: '/angularjsQuestions',
+            templateUrl: 'components/ui/angularjsQuestions.html'
         })
 
-        .state('entitlements', {
-            url: '/entitlements',
-            templateUrl: 'components/entitlements/entitlements.html'
+        .state('otherQuestions', {
+            url: '/otherQuestions',
+            templateUrl: 'components/ui/otherQuestions.html'
         })
 
-        .state('reports', {
-            url: '/reports',
-            templateUrl: 'components/reports/reports.html'
-        })
 
     $locationProvider.html5Mode(true);
                 
 });
 
-complianceApp.controller('appCtrl', function($scope, $state) {
-    //$state.transitionTo('training.create');
-});

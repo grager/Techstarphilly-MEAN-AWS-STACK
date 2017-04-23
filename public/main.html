@@ -27,7 +27,7 @@
         
     </head>
 
-    <body>
+    <body ng-app="testPortalApp">
         <div class="body-content">
             <div class="nav dark-bg">
                 <div class="nav__toggle">
@@ -57,7 +57,7 @@
             <div class="sidebar">
                 <ul class="sidebar__menu">
                     <li class="sidebar__menu-list active">
-                        <a href="#" class="sidebar__menu-list-item">
+                        <a href="#" class="sidebar__menu-list-item" ui-sref="home" ui-sref-active="active">
                             <i class="fa fa-home"></i><span>Dashboard</span>
                         </a>
                     </li>
@@ -74,80 +74,7 @@
                 </ul>
             </div>
             <div class="main-container">
-                <div class="content__block">
-                    <div class="content__block-header">
-                        <ol class="breadcrumb content__block-header-list">
-                          <li class="breadcrumb-item"><a href="#">Home</a></li>
-                          <li class="breadcrumb-item"><a href="#">Interview Questions</a></li>
-                          <li class="breadcrumb-item active">Web Developer</li>
-                        </ol>
-                    </div>
-                    <div class="content__block-content">
-                        <div class="card-deck">
-                            <div class="card">
-                                <div class="card-block">
-                                  <h4 class="card-title">HTML</h4>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                  <a href="#"><h6 class="text-muted">View Details <i class="fa fa-angle-double-right"></i></h6></a>
-                                </div>
-                              </div>
-                            <div class="card">
-                                <div class="card-block">
-                                  <h4 class="card-title">CSS</h4>
-                                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                                <div class="card-footer">
-                                  <a href="#"><h6 class="text-muted">View Details <i class="fa fa-angle-double-right"></i></h6></a>
-                                </div>
-                              </div>
-                            <div class="card">
-                                <div class="card-block">
-                                  <h4 class="card-title">JavaScript</h4>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                </div>
-                                <div class="card-footer">
-                                  <a href="#"><h6 class="text-muted">View Details <i class="fa fa-angle-double-right"></i></h6></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content__block-content">
-                        <div class="card-deck">
-                            <div class="card">
-                                <div class="card-block">
-                                  <h4 class="card-title">jQuery</h4>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                  <a href="#"><h6 class="text-muted">View Details <i class="fa fa-angle-double-right"></i></h6></a>
-                                </div>
-                              </div>
-                            <div class="card">
-                                <div class="card-block">
-                                  <h4 class="card-title">Angular JS</h4>
-                                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                                <div class="card-footer">
-                                  <a href="#"><h6 class="text-muted">View Details <i class="fa fa-angle-double-right"></i></h6></a>
-                                </div>
-                              </div>
-                            <div class="card">
-                                <div class="card-block">
-                                  <h4 class="card-title">Miscellaneous</h4>
-                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                </div>
-                                <div class="card-footer">
-                                  <a href="#"><h6 class="text-muted">View Details <i class="fa fa-angle-double-right"></i></h6></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer">
-                    <div class="text-md-center">Copyright &copy; TechStar Philly 2017</div>
-                </div>
+                <div ui-view></div>
             </div>
         </div>
     </body>
