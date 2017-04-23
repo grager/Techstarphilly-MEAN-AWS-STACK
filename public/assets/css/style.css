@@ -13,6 +13,29 @@ body {
   background-color: #1a2732;
   border-bottom: 1px solid #f1f2f7;
 }
+.main-container {
+  position: absolute;
+  top: 60px;
+  left: 180px;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+.content__block {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.content__block-header {
+  padding: 0 20px;
+}
+.content__block-header-list {
+  margin: 0;
+  padding-bottom: 0;
+}
+.content__block-content {
+  padding: 20px 20px 0;
+}
 
 .nav {
   position: fixed;
