@@ -1,5 +1,5 @@
 //load environment variables
-//require('dotenv').config();
+require('dotenv').config();
 
 //grab our dependencies
 const express = require('express'),
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 //connect to our datablase
-//mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.DB_URI);
 
 //set the routes
 app.use(require('./app/routes'));

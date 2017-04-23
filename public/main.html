@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <base href="/">
-        <title>TechStar Philly</title>
+        <title>TechStar Philly Test Portal</title>
 
         <!-- css -->
         <link rel="stylesheet" href="assets/libs/font-awesome/css/font-awesome.css">
@@ -13,6 +13,7 @@
 
         <!-- JS -->
         <script type="text/javascript" src="assets/libs/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="assets/libs/tether/dist/js/tether.js"></script>
         <script type="text/javascript" src="assets/libs/bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="assets/libs/angular/angular.js"></script>
         <script type="text/javascript" src="assets/libs/angular-animate/angular-animate.js"></script>    
@@ -27,6 +28,53 @@
     </head>
 
     <body>
-        
+    <div class="body-content">
+        <div class="nav dark-bg">
+            <div class="nav__toggle">
+                <i class="fa fa-bars"></i>
+                <h3 href="#" class="nav__logo">Test <span>Portal</span></h3>
+            </div>
+            <div class="nav__search">
+                <div class="nav__search-form">
+                    <i class="fa fa-search nav__search-form-icon"></i>
+                    <input type="text" class="nav__search-form-input" placeholder="Search" />
+                </div>
+            </div>
+            <div class="nav__notification">
+                <ul class="nav__notification-menu">
+                    <li class="nav__notification-menu-list"></li>
+                    <li class="nav__notification-menu-list">
+                        <a href="#" class="nav__notification-menu-link">
+                            <span class="nav__notification-menu-profile">
+                                <img src="assets/img/team/3.jpg" />
+                            </span>
+                            <span class="nav__notification-menu-name">Karen Karen Karen Karen Karen</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul class="sidebar__menu">
+                <li class="sidebar__menu-list active">
+                    <a href="#" class="sidebar__menu-list-item">
+                        <i class="fa fa-home"></i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-list">
+                    <a href="#" class="sidebar__menu-list-item">
+                        <i class="fa fa-home"></i>Forms
+                    </a>
+                </li>
+                <li class="sidebar__menu-list">
+                    <a href="#" class="sidebar__menu-list-item">
+                        <i class="fa fa-home"></i>UI Features
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-block">
+        </div>
+    </div>
     </body>
     </html>

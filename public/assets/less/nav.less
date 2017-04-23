@@ -1,65 +1,96 @@
 .nav {
-	margin-bottom: 20px;
-    padding: 25px 0;
-    min-height: 50px;
-    background-color: #222;
-    border: none;
-    transition: padding 0.3s;   
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	min-height: 60px;
+	z-index: 101;
 }
 
-	.nav__header {
-		margin-left: 0;
-		margin-right: 0;
+	.nav__toggle {
+		margin-top: 10px;
+		margin-left: 20px;
 		float: left;
 	}
 
-	.nav__brand {
-		margin-left: -15px;
-		padding: 15px 15px;
-		height: 50px;
-		line-height: 20px;
-		float: left;
-		font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-		font-size: 2em;
-		transition: all 0.3s;
-		color: #fed136 !important;  
-		background-color: transparent;
+		.nav__logo {
+			display: inline-block;
+			padding-top: 5px;
+			padding-left: 10px;
+			font-size: 22px;
+		    font-weight: 300;
+		    color: #fed189;
+		    text-transform: uppercase;
 
-		&:hover, &:focus {
-			text-decoration: none;
+		    span {
+		    	color: #00a0df;
+		    }
 		}
+
+	.nav__search {
+		padding: 15px 0 0 20px;
 	}
 
-	.navbar__collapse {
-		display: block !important;
-		max-height: 340px;
-		border-color: rgba(255,255,255,.02);
+		.nav__search-form {
+			position: relative;
+		}
+
+			.nav__search-form-icon {
+				position: absolute;
+				top: 7px;
+				left: 3px;
+				color: #8e8e93;
+			}
+
+			.nav__search-form-input {
+				width: 200px;
+    			height: 30px;
+    			padding: 6px 12px 6px 20px;
+			    font-size: 14px;
+			    line-height: 1.428571429;
+			    color: #8e8e93;
+			    border: 1px solid #c7c7cc;
+    			border-radius: 4px;
+			    vertical-align: middle;
+			}
+
+	.nav__notification {
+		position: absolute;
+		right: 20px;
 	}
 
-		.navbar__collapse-list {
-			margin-right: -15px;
-			padding-left: 0;
+		.nav__notification-menu {
 			list-style: none;
-			float: right!important;    
 		}
 
-			.navbar__collapse-item {
-				display: block;
-				position: relative;
+			.nav__notification-menu-list {
+				padding: 8px;
 				float: left;
 			}
 
-				.navbar__collapse-link {
-					padding-top: 15px;
-    				padding-bottom: 15px;
-    				line-height: 20px;
-					font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;   
-					font-weight: 400;
-					color: #fff;
-    				text-transform: uppercase;
-    				letter-spacing: 1px;
+				.nav__notification-menu-link {
+					text-decoration: none;
+
+					&:hover, &focus {
+						text-decoration: none;
+					}
+
 				}
 
+					.nav__notification-menu-profile {
+
+						img {
+							display: inline-block;
+							width: 42px;
+							border: 2px solid #688a7e;
+    						border-radius: 50%;
+    						vertical-align: middle;
+						}
+					}
+				.nav__notification-menu-name {
+					padding-left: 5px;
+					color: #fff;
+				}
 
 
 
