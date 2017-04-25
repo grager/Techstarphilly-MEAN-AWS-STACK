@@ -27,6 +27,8 @@ testPortalApp.controller('htmlQuestionCtrl', function($scope, $state, createQues
 
 	$scope.questionDetails = {};
 
+	$scope.htmlQuestions = {};
+
 	$scope.response;
 
 	//CRUD for HTML Questions
@@ -43,12 +45,9 @@ testPortalApp.controller('htmlQuestionCtrl', function($scope, $state, createQues
 		});
 	};
 
-	$scope.updateHtmlQuestion = function(id) {
-		console.log($scope.htmlQuestions)
-
-		updateQuestion.updateQuestionList('/updateHtmlQuestion/' + id, $scope.htmlQuestions).success(function(res) {
-			console.log(res);
-			$scope.questionDetails = res;
+	$scope.updateHtmlQuestion = function(id, index) {
+		updateQuestion.updateQuestionList('/updateHtmlQuestion/' + id, $scope.htmlQuestions[index]).success(function(res) {
+			$scope.htmlQuestions[index] = res;
 			$state.reload();
 		});
 	};

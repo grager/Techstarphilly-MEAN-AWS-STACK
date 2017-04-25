@@ -37,7 +37,7 @@
     		<div class="question__title">
                 <div class="row">
                     <div class="col-md-8">
-                        <h4>{{$index+1}}. <input type="text" class="question__edit" value='{{htmlQuestion.title}}' ng-disabled='isEdit'/></h4>
+                        <h4>{{$index+1}}. <input type="text" class="question__edit" ng-model='htmlQuestion.title' ng-disabled='isEdit'/></h4>
                     </div>
                     <div class="col-md-4 text-md-right">                     
                         <button class="btn btn-warning btn-sm" ng-click='editForm()'>Edit</button>
@@ -47,18 +47,18 @@
             </div>
     		<div class="question__content">
     			<div class="question__list">
-    			<strong>Question: </strong><input type="text" class="question__edit--small" value='{{htmlQuestion.question}}' ng-disabled='isEdit'/>
+    			<strong>Question: </strong><input type="text" class="question__edit--small" ng-model='htmlQuestion.question' ng-disabled='isEdit'/>
     			</div>
     			<div class="question__anwser">
-    			<strong>Anwser: </strong><input type="text" class="question__edit--small" value='{{htmlQuestion.answer}}' ng-disabled='isEdit'/>
+    			<strong>Anwser: </strong><input type="text" class="question__edit--small" ng-model='htmlQuestion.answer' ng-disabled='isEdit'/>
     			</div>
     			<div class="question__image">
-    				<textarea class="question__image-content" ng-disabled='isEdit'>{{htmlQuestion.code}}</textarea>
+    				<textarea class="question__image-content" ng-model='htmlQuestion.code' ng-disabled='isEdit'></textarea>
     			</div>
     		</div>
             <div class="question__footer text-md-right" ng-hide='isEdit'>
                 <button type="submit" class="btn btn-default btn-sm" ng-click='cancelEdit()'>Cancel</button>      
-                <button type="submit" class="btn btn-primary btn-sm" ng-click='updateHtmlQuestion(htmlQuestion.referenceNumber)'>Save</button>
+                <button type="submit" class="btn btn-primary btn-sm" ng-click='updateHtmlQuestion(htmlQuestion.referenceNumber, $index)'>Save</button>
             </div>
     	</div>
     </div>

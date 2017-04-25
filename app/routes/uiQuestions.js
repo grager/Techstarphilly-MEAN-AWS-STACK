@@ -36,10 +36,17 @@ router.get('/getHtmlQuestion', function(req, res) {
 //UPDATE
 router.put('/updateHtmlQuestion/:referenceNumber',function(req, res) {
 
-    HtmlQuestionModel.find({"referenceNumber":req.params.referenceNumber},function(err, question) {
-        if (err) res.send(err);
+    HtmlQuestionModel.findOne({"referenceNumber":req.params.referenceNumber}, function(err, question) {
+        
+        question.title = req.body.title;
+        question.question = req.body.question;
+        question.anwser = req.body.anwser;
+        question.code = req.body.code;
 
-        res.json(question);
+        question.save(function(err) {
+			if (err) res.send(err);
+			res.json('This question has been updated successfully.')
+        });
 
     });
 });
