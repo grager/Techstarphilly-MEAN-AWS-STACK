@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 //connect to our datablase
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB_URI);
 
 //set the routes

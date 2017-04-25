@@ -23,3 +23,29 @@ testPortalApp.factory("fetchQuestions", function($http) {
     return myFactory;
     
 });
+
+//Update
+testPortalApp.factory("updateQuestion", function($http) {
+
+    var myFactory = {};
+    
+    myFactory.updateQuestionList = function(serviceUrl, obj){ 
+        return $http.put(serviceUrl, obj);
+    }
+
+    return myFactory;
+    
+});
+
+//Delete
+testPortalApp.factory("deleteQuestion", function($http) {
+
+    var myFactory = {};
+    
+    myFactory.deleteQuestionLists = function(serviceUrl){ 
+        return $http.delete(serviceUrl);
+    }
+
+    return myFactory;
+    
+});

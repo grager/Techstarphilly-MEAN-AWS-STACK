@@ -17,7 +17,7 @@ router.post('/saveHtmlQuestion', function(req, res) {
 	htmlQuestionModel.save(function(err) {
 		if (err) res.send(err);
 		
-		res.json({message: 'Adding html question'});
+		res.json('This question list has been created successfully.');
 
 	});	
 });
@@ -31,4 +31,25 @@ router.get('/getHtmlQuestion', function(req, res) {
         res.json(question);
     });
 	
+});
+
+//UPDATE
+router.put('/updateHtmlQuestion/:referenceNumber',function(req, res) {
+
+    HtmlQuestionModel.find({"referenceNumber":req.params.referenceNumber},function(err, question) {
+        if (err) res.send(err);
+
+        res.json(question);
+
+    });
+});
+
+//DELETE
+router.delete('/deleteHtmlQuestion/:referenceNumber',function(req, res) {
+
+    HtmlQuestionModel.remove({"referenceNumber":req.params.referenceNumber},function(err) {
+        if (err) res.send(err);
+
+        res.json('This question has been deleted successfully.');
+    });
 });

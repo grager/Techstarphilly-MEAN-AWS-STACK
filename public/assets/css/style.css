@@ -37,6 +37,12 @@ body {
 .content__block-content {
   padding: 20px 20px 0;
 }
+.content__block-button {
+  padding-right: 20px;
+}
+.content__block-form {
+  padding: 20px;
+}
 
 .nav {
   position: fixed;
@@ -116,8 +122,25 @@ body {
   color: #fff;
 }
 
+.question {
+  padding: 20px;
+}
 .question__title {
   color: #000000;
+}
+.question__edit {
+  width: 90%;
+}
+.question__edit[disabled] {
+  border: none;
+  background-color: #eeeeee;
+}
+.question__edit--small {
+  width: 80%;
+}
+.question__edit--small[disabled] {
+  border: none;
+  background-color: #eeeeee;
 }
 .question__list {
   margin-bottom: 5px;
@@ -145,6 +168,7 @@ body {
 .question__image-content {
   display: block;
   padding: 0.5em;
+  width: 100%;
   background: #3F3F3F;
   color: #DCDCDC;
 }
