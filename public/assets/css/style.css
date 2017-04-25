@@ -146,9 +146,17 @@ body {
   margin-bottom: 5px;
   font-size: 16px;
 }
+.question__list strong {
+  display: inline-block;
+  width: 80px;
+}
 .question__anwser {
   margin-bottom: 10px;
   font-size: 16px;
+}
+.question__anwser strong {
+  display: inline-block;
+  width: 80px;
 }
 .question__image {
   display: block;
