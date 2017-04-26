@@ -1,4 +1,4 @@
-var blogApp = angular.module('blogApp', ['ui.router']);
+var blogApp = angular.module('blogApp', ['ui.router','ui.bootstrap']);
 
 blogApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     
