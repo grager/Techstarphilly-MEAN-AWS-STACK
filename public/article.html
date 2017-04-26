@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="mouqinyao">
+
+    <title>TechStar Philly Blog</title>
+
+    <!-- Bootstrap core CSS and JS-->
+    <link href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom fonts for this template -->
+    <link href="assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/blog.css" rel="stylesheet">
+
+    <script type="text/javascript" src="assets/libs/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="assets/libs/angular/angular.js"></script>
+    <script type="text/javascript" src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script type="text/javascript" src="blog.routes.js"></script>
+    <script type="text/javascript" src="components/blog/blogCtrl.js"></script>
+</head>
+
+<body ng-app="blogApp">
+    <div class="main">
+        <div class="side-panel">
+            <header>
+                <div class="header-content">
+                    <p class="header-note">Welcome to Philadephia!</p>
+                </div>
+            </header>
+        </div>
+        <div class="main-content" ng-controller="blogCtrl">
+            <div class="tabpanel">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li><a ui-sref="posts" ui-sref-active="active">POSTS</a></li>
+                  <li><a ui-sref="collections" ui-sref-active="active">COLLECTIONS</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div ui-view></div>
+                </div>
+            </div>
+               
+            <div class="footer"><p>Copyright &copy; TechStar Philly 2017</p></div>
+        </div>
+    </div>
+</body>
+
+</html>
