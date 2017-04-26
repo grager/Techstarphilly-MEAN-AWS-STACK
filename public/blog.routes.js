@@ -17,6 +17,21 @@ blogApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: 'components/blog/collections.html'
         })
 
+        .state('consulting', {
+            url: '/consulting',
+            templateUrl: 'components/blog/consulting.html'
+        })
+
+        .state('businessAnalyst', {
+            url: '/businessAnalyst',
+            templateUrl: 'components/blog/businessAnalyst.html'
+        })
+
+        .state('uiDeveloper', {
+            url: '/uiDeveloper',
+            templateUrl: 'components/blog/uiDeveloper.html'
+        })
+
     $locationProvider.html5Mode(true);
                 
 });
