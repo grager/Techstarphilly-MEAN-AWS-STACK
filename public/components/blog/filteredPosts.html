@@ -1,0 +1,12 @@
+<section class="post-content">
+	<h4><i class="fa fa-star"></i> CATEGORY <i class="fa fa-star"></i></h4>
+</section>
+<section class="post-content" ng-repeat="filteredPost in filteredPosts">
+    <h2>{{filteredPost.title}}</h2>
+    <div class="post-description">
+        <p>{{filteredPost.description}}</p>
+    </div>
+    <div class="post-footer">
+        <p>{{filteredPost.author}} | {{filteredPost.date}}</p>
+    </div>
+</section>

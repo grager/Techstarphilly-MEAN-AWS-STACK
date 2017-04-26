@@ -20,12 +20,15 @@ app.use(express.static(__dirname + '/public'));
 
 //connect to our datablase
 mongoose.Promise = global.Promise;
+
+//For local host development
 mongoose.connect(process.env.DB_URI);
 
 //set the routes
 app.use(require('./app/routes'));
 app.use(require('./app/routes/notification'));
 app.use(require('./app/routes/uiQuestions'));
+app.use(require('./app/routes/posts'));
 
 app.all('/*', function(req, res) {
     // Just send the index.html for other files to support HTML5Mode
