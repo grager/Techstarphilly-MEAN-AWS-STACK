@@ -7,7 +7,8 @@ const express = require('express'),
 	  port = process.env.PORT || 8081,
 	  mongoose = require('mongoose'),
 	  bodyParser = require('body-parser'),
-	  nodemailer = require('nodemailer');
+	  nodemailer = require('nodemailer'),
+	  AWS = require('aws-sdk');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -22,7 +23,9 @@ app.use(express.static(__dirname + '/public'));
 mongoose.Promise = global.Promise;
 
 //For local host development
-mongoose.connect(process.env.DB_URI);
+//mongoose.connect(process.env.DB_URI);
+
+mongoose.connect("mongodb://mouqinyao:karl111024@ds115701.mlab.com:15701/online-test");
 
 //set the routes
 app.use(require('./app/routes'));

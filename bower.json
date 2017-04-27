@@ -20,7 +20,8 @@
     "angular-ui-bootstrap": "^2.2.0",
     "angular-bootstrap": "^2.2.0",
     "tether": "^1.4.0",
-    "jquery-easing": "*"
+    "jquery-easing": "*",
+    "aws-sdk": "aws-sdk-js#^2.46.0"
   },
   "private": true,
   "resolutions": {
