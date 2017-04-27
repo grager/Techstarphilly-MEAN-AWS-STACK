@@ -1,12 +1,15 @@
 <section class="post-content">
-	<h4><i class="fa fa-star"></i> CATEGORY <i class="fa fa-star"></i></h4>
+	<h4><i class="fa fa-star"></i> Category about {{category}} <i class="fa fa-star"></i></h4>
+	<div class="text-md-right">
+		<button class="btn btn-primary btn-sm" ui-sref="collections">Go Back to Collections</button>
+	</div>
 </section>
 <section class="post-content" ng-repeat="filteredPost in filteredPosts">
-    <h2>{{filteredPost.title}}</h2>
+    <h2><a href="#{{allPost.author}}" data-toggle="modal" class="post-link">{{filteredPost.title}}</a></h2>
     <div class="post-description">
         <p>{{filteredPost.description}}</p>
     </div>
     <div class="post-footer">
-        <p>{{filteredPost.author}} | {{filteredPost.date}}</p>
+        <p>Techstarphilly | {{filteredPost.date}}</p>
     </div>
 </section>

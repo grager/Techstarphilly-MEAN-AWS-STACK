@@ -26,6 +26,11 @@ router.get('/getAllPosts', function(req, res) {
 	PostsModel.find(function(err, posts) {
         if (err) res.send(err);
 
+        //Sorting the array based on date
+        posts.sort(function(a,b){
+        	return new Date(b.date) - new Date(a.date);
+        });
+
         res.json(posts);
     });
 	
@@ -36,6 +41,11 @@ router.get('/getAllPosts/:category',function(req, res) {
 
     PostsModel.find({"category":req.params.category},function(err, posts) {
         if (err) res.send(err);
+
+        //Sorting the array based on date
+        posts.sort(function(a,b){
+        	return new Date(b.date) - new Date(a.date);
+        });
 
         res.json(posts);
     });

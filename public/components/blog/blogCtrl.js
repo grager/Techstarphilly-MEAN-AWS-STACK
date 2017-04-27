@@ -12,6 +12,7 @@ blogApp.controller('blogCtrl', function($scope, $http, $state) {
 	};*/
 
 	$scope.getFilteredPosts = function(category) {
+		$scope.category = category;
 		$http.get('/getAllPosts/' + category).success(function(res) {
 			$scope.filteredPosts = res;
 		});
@@ -20,14 +21,15 @@ blogApp.controller('blogCtrl', function($scope, $http, $state) {
 	$scope.getAllPosts = function() {
 		$http.get('/getAllPosts').success(function(res) {
 			$scope.allPosts = res;
+
+			//set total post counts
+			$scope.totalItems = $scope.allPosts.length;
 		});
 	};
 
 	$scope.getAllPosts();
 
-	//Pagination for all posts
-
-	$scope.totalItems = $scope.allPosts.length;
+	//Pagination for all posts	
 	$scope.itemsPerPage = 5;
 	$scope.currentPage = 1;
 

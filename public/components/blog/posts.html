@@ -1,10 +1,10 @@
  <section class="post-content" ng-repeat="allPost in allPosts.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-    <h2>{{allPost.title}}</h2>
+    <h2><a href="#{{allPost.author}}" class="post-link" data-toggle="modal">{{allPost.title}}</a></h2>
     <div class="post-description">
         <p>{{allPost.description}}</p>
     </div>
     <div class="post-footer">
-        <p>{{allPost.author}} | {{allPost.date}}</p>
+        <p>Techstarphilly | {{allPost.date}}</p>
     </div>
 </section>
 
