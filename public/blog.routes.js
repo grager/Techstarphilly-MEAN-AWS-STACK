@@ -2,7 +2,7 @@ var blogApp = angular.module('blogApp', ['ui.router','ui.bootstrap']);
 
 blogApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     
-    $urlRouterProvider.otherwise('/posts');
+    $urlRouterProvider.otherwise('/collections');
     
     $stateProvider
         
