@@ -1,65 +1,65 @@
 <div class="content__block" ng-controller="htmlQuestionCtrl">
 	<div class="content__block-header">
-        <ol class="breadcrumb content__block-header-list">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Interview Questions</a></li>
-          <li class="breadcrumb-item"><a href="#">Web Developer</a></li>
-          <li class="breadcrumb-item active">HTLM Questions</li>
-        </ol>
-    </div>
-    <div class="content__block-content">
-        <div class="text-md-right content__block-button">
-    	   <button class="btn btn-info btn-sm" ng-click='addAnotherList()'>Add Entry</button>
-    	</div>
-        <form class="content__block-form" ng-show="addEntry">
-          <div class="form-group">
-            <label for="questionTitle">Question Title</label>
-            <input type="text" class="form-control" id="questionTitle" placeholder="Enter question title" ng-model="questionDetails.title">
-          </div>
-          <div class="form-group">
-            <label for="question">Question</label>
-            <input type="text" class="form-control" id="question" placeholder="Question" ng-model="questionDetails.question">
-          </div>
-          <div class="form-group">
-            <label for="anwser">Anwser</label>
-            <input type="text" class="form-control" id="anwser" placeholder="Anwser" ng-model="questionDetails.anwser">
-          </div>
-          <div class="form-group">
-            <label for="sampleCode">Sample Code</label>
-            <textarea class="form-control" id="sampleCode" rows="3" ng-model="questionDetails.code"></textarea>
-          </div>  
-          <div class="text-md-right">
-              <button type="submit" class="btn btn-default btn-sm" ng-click='cancelEditForm()'>Cancel</button>      
-              <button type="submit" class="btn btn-primary btn-sm" ng-click='createHtmlQuestion()'>Save</button>
-          </div>
-        </form>
-        <div class="question" ng-repeat="htmlQuestion in htmlQuestions">
-    		<div class="question__title">
-                <div class="row">
-                    <div class="col-md-10">
-                        <h4>{{$index+1}}. <input type="text" class="question__edit" ng-model='htmlQuestion.title' ng-disabled='isEdit'/></h4>
-                    </div>
-                    <div class="col-md-2 text-md-right">                     
-                        <button class="btn btn-warning btn-sm" ng-click='editForm()'>Edit</button>
-                        <button class="btn btn-success btn-sm" ng-click='deleteHtmlQuestion(htmlQuestion.referenceNumber)'>Delete</button>                      
-                    </div>
-                </div>
-            </div>
-    		<div class="question__content">
-    			<div class="question__list">
-    			    <strong>Question: </strong><input type="text" class="question__edit--small" ng-model='htmlQuestion.question' ng-disabled='isEdit'/>
-    			</div>
-    			<div class="question__anwser">
-    			    <strong>Anwser: </strong><input type="text" class="question__edit--small" ng-model='htmlQuestion.answer' ng-disabled='isEdit'/>
-    			</div>
-    			<div class="question__image">
-    				<textarea class="question__image-content" ng-model='htmlQuestion.code' ng-disabled='isEdit'></textarea>
-    			</div>
-    		</div>
-            <div class="question__footer text-md-right" ng-hide='isEdit'>
-                <button type="submit" class="btn btn-default btn-sm" ng-click='cancelEdit()'>Cancel</button>      
-                <button type="submit" class="btn btn-primary btn-sm" ng-click='updateHtmlQuestion(htmlQuestion.referenceNumber, $index)'>Save</button>
-            </div>
-    	</div>
-    </div>
+      <ol class="breadcrumb content__block-header-list">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Interview Questions</a></li>
+        <li class="breadcrumb-item"><a href="#">Web Developer</a></li>
+        <li class="breadcrumb-item active">HTLM Questions</li>
+      </ol>
+  </div>
+  <div class="content__block-content">
+    <div class="text-md-right content__block-button">
+  	   <button class="btn btn-info btn-sm" ng-click='addAnotherList()'>Add Entry</button>
+  	</div>
+    <form class="content__block-form" ng-show="addEntry">
+      <div class="form-group">
+        <label for="questionTitle">Question Title</label>
+        <input type="text" class="form-control" id="questionTitle" placeholder="Enter question title" ng-model="questionDetails.title">
+      </div>
+      <div class="form-group">
+        <label for="question">Question</label>
+        <input type="text" class="form-control" id="question" placeholder="Question" ng-model="questionDetails.question">
+      </div>
+      <div class="form-group">
+        <label for="anwser">Anwser</label>
+        <input type="text" class="form-control" id="anwser" placeholder="Anwser" ng-model="questionDetails.anwser">
+      </div>
+      <div class="form-group">
+        <label for="sampleCode">Sample Code</label>
+        <textarea class="form-control" id="sampleCode" rows="3" ng-model="questionDetails.code"></textarea>
+      </div>  
+      <div class="text-md-right">
+          <button type="submit" class="btn btn-default btn-sm" ng-click='cancelEditForm()'>Cancel</button>      
+          <button type="submit" class="btn btn-primary btn-sm" ng-click='createHtmlQuestion()'>Save</button>
+      </div>
+    </form>
+    <div class="question" ng-repeat="htmlQuestion in htmlQuestions">
+  		<div class="question__title">
+              <div class="row">
+                  <div class="col-md-10">
+                      <h4>{{$index+1}}. <input type="text" class="question__edit" ng-model='htmlQuestion.title' ng-disabled='htmlQuestion.isEdit'/></h4>
+                  </div>
+                  <div class="col-md-2 text-md-right">                     
+                      <button class="btn btn-warning btn-sm" ng-click='editForm($index)'>Edit</button>
+                      <button class="btn btn-success btn-sm" ng-click='deleteHtmlQuestion(htmlQuestion.referenceNumber)'>Delete</button>                      
+                  </div>
+              </div>
+      </div>
+  		<div class="question__content">
+  			<div class="question__list">
+  			    <strong>Question: </strong><input type="text" class="question__edit--small" ng-model='htmlQuestion.question' ng-disabled='htmlQuestion.isEdit'/>
+  			</div>
+  			<div class="question__anwser">
+  			    <strong>Anwser: </strong><input type="text" class="question__edit--small" ng-model='htmlQuestion.answer' ng-disabled='htmlQuestion.isEdit'/>
+  			</div>
+  			<div class="question__image">
+  				<textarea class="question__image-content" ng-model='htmlQuestion.code' ng-disabled='htmlQuestion.isEdit'></textarea>
+  			</div>
+  		</div>
+      <div class="question__footer text-md-right" ng-hide='htmlQuestion.isEdit'>
+        <button type="submit" class="btn btn-default btn-sm" ng-click='cancelEdit($index)'>Cancel</button>      
+        <button type="submit" class="btn btn-primary btn-sm" ng-click='updateHtmlQuestion(htmlQuestion.referenceNumber, $index)'>Save</button>
+      </div>
+  	</div>
+  </div>
 </div>

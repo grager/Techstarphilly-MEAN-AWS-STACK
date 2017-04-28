@@ -1,10 +1,11 @@
 
 testPortalApp.controller('htmlQuestionCtrl', function($scope, $state, createQuestions, fetchQuestions, updateQuestion, deleteQuestion) {
 	
+	let originalList = {};
+
 	$scope.addEntry = false;
 
-	$scope.isEdit = true;
-
+	//Add another question list
 	$scope.addAnotherList = function() {
 		$scope.addEntry = true;
 	};
@@ -13,12 +14,17 @@ testPortalApp.controller('htmlQuestionCtrl', function($scope, $state, createQues
 		$scope.addEntry = false;
 	};
 
-	$scope.editForm = function() {
-		$scope.isEdit = false;
+	//Set the flag within the ng-repeat list
+	$scope.editForm = function(index) {
+		let temp = {};
+		$scope.htmlQuestions[index].isEdit = false;
+		angular.copy($scope.htmlQuestions[index], temp);
+		originalList = temp;
 	};
 
-	$scope.cancelEdit = function() {
-		$scope.isEdit = true;
+	$scope.cancelEdit = function(index) {
+		$scope.htmlQuestions[index] = originalList;
+		$scope.htmlQuestions[index].isEdit = true;
 	};
 
 	$scope.reloadState = function() {

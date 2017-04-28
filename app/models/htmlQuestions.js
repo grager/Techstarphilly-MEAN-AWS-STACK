@@ -7,6 +7,10 @@ var htmlQuestionSchema = new mongoose.Schema({
 	question: String,
 	anwser: String,
 	code: String,
+	isEdit: {
+		type: Boolean,
+		default: true
+	}
 },{
     versionKey: false
 });
