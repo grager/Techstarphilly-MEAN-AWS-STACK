@@ -108,6 +108,10 @@ body {
   padding: 70px 30px 70px 70px;
 }
 
+.collection-content .card__click {
+  cursor: pointer;
+}
+
 .collection-content .card-img-top {
   width: 100%;
   height: 140px;
