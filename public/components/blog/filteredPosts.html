@@ -5,7 +5,7 @@
 	</div>
 </section>
 <section class="post-content" ng-repeat="filteredPost in filteredPosts">
-    <h2><a href="#{{allPost.author}}" data-toggle="modal" class="post-link">{{filteredPost.title}}</a></h2>
+    <h2><a href="#{{filteredPost.author}}" data-toggle="modal" class="post-link">{{filteredPost.title}}</a></h2>
     <div class="post-description">
         <p>{{filteredPost.description}}</p>
     </div>
