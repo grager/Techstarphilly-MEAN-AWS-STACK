@@ -15,8 +15,10 @@
     "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.0",
     "mongoose": "^4.9.5",
     "mongoose-increment": "^0.6.1",
+    "morgan": "^1.8.1",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0"
   },
