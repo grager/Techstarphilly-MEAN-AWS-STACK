@@ -28,9 +28,6 @@ mongoose.Promise = global.Promise;
 //For local host development
 mongoose.connect(process.env.DB_URI);
 
-//For Deployment
-//mongoose.connect("mongodb://mouqinyao:karl111024@ds115701.mlab.com:15701/online-test");
-
 //set the routes
 //Middleware Routes
 app.use(require('./app/routes'));
