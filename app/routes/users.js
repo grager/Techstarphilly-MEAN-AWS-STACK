@@ -47,13 +47,18 @@ router.post('/authenticate', function(req, res) {
 
 		if (!user) {
 
-			res.json("This account does not exist.");
+			res.json({
+				success: false,
+				message: "This account does not exist."});
 
 		} else if (user) {
 			//check if password matches
 			if(user.password != req.body.password) {
 
-				res.json("The password is not correct");
+				res.json({
+					success: false,
+					message:"The password is not correct"
+				});
 				
 			} else {
 				//if user is found and password is correct

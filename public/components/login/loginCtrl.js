@@ -8,11 +8,13 @@ loginApp.controller('loginCtrl', function($scope, $http, $window) {
 
 		$http.post('/authenticate', $scope.userInfo).success(function(res) {
 
-		//Set token to session storage
-    	$window.sessionStorage.setItem('token',res.token);
+			if (res.success) {
+				//Set token to session storage
+	    		$window.sessionStorage.setItem('token',res.token);
 
-    	$window.location.href = '/main.html';
-
+	    		$window.location.href = '/main.html';
+			}
+		
 		}).error(function(err) {console.log(err)});
 	}
 
