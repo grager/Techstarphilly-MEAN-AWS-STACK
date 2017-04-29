@@ -7,7 +7,7 @@ const express = require('express'),
 	  port = process.env.PORT || 8081,
 	  mongoose = require('mongoose'),
 	  bodyParser = require('body-parser'),
-	  morgan      = require('morgan'),
+	  morgan = require('morgan'),
 	  AWS = require('aws-sdk');
 
 // configure app to use bodyParser()
@@ -32,14 +32,14 @@ mongoose.connect(process.env.DB_URI);
 //mongoose.connect("mongodb://mouqinyao:karl111024@ds115701.mlab.com:15701/online-test");
 
 //set the routes
+//Middleware Routes
+app.use(require('./app/routes'));
+
+//API Routes
 app.use(require('./app/routes/notification'));
 app.use(require('./app/routes/uiQuestions'));
 app.use(require('./app/routes/posts'));
 app.use(require('./app/routes/users'));
-
-//keep middleware at last
-app.use(require('./app/routes'));
-
 
 app.all('/*', function(req, res) {
     // Just send the index.html for other files to support HTML5Mode

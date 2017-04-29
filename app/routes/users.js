@@ -27,7 +27,7 @@ router.get('/signup', function(req, res) {
 });
 
 //Get all user lists
-router.get('/getAllUsers', function(req, res) {
+router.get('/api/getAllUsers', function(req, res) {
 
 	UserModel.find(function(err, users) {
         if (err) res.send(err);

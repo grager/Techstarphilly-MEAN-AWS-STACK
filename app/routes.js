@@ -2,13 +2,14 @@
 const express = require('express'),
 	  path = require('path'),
 	  router = express.Router(),
+    jwt = require('jsonwebtoken'),
 	  mongoose = require('mongoose');
 
 // export router
 module.exports = router;
 
 // middleware to use for jwt authenticate
-router.use(function(req, res, next) {
+router.use('/api',function(req, res, next) {
 
   console.log("authentication is happening!");
 
