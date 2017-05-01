@@ -1,4 +1,4 @@
-var loginApp = angular.module('loginApp', []);
+var loginApp = angular.module('loginApp',[]);
 
 loginApp.controller('loginCtrl', function($scope, $http, $window) {
 
@@ -11,6 +11,8 @@ loginApp.controller('loginCtrl', function($scope, $http, $window) {
 			if (res.success) {
 				//Set token to session storage
 	    		$window.sessionStorage.setItem('token',res.token);
+
+	    		$window.sessionStorage.setItem('authenticatedUser', JSON.stringify(res.user));
 
 	    		$window.location.href = '/main.html';
 			}
