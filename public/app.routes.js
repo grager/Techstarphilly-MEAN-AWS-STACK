@@ -12,6 +12,11 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/home/home.html'
         })
 
+        .state('uiHome', {
+            url: '/uiHome',
+            templateUrl: 'components/ui/home.html'
+        })
+
         .state('htmlQuestions', {
             url: '/htmlQuestions',
             templateUrl: 'components/ui/htmlQuestions.html'

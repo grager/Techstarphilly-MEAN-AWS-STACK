@@ -206,6 +206,7 @@ body {
   display: block;
   padding: 15px 0 15px 10px;
   color: #fff;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-size: 16px;
   font-weight: 300;
@@ -222,4 +223,23 @@ body {
 .sidebar__menu-list-item .fa {
   width: 25px;
   font-size: 18px;
+}
+.sidebar__sub-menu {
+  padding-bottom: 6px;
+  border-bottom: 1px solid #D7D7D7;
+}
+.sidebar__sub-menu-list {
+  line-height: 20px;
+  font-size: 15px;
+  list-style: none;
+}
+.sidebar__sub-menu-list-item {
+  display: block;
+  padding: 6px 0 3px 0;
+  color: #fff;
+}
+.sidebar__sub-menu-list-item:hover,
+.sidebar__sub-menu-list-item:focus {
+  color: #fff;
+  text-decoration: none;
 }
