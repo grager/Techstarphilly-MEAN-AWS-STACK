@@ -1,0 +1,18 @@
+<div class="" ng-controller="userProfileCtrl">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Admin</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users">
+				<td>{{user.name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.admin}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
