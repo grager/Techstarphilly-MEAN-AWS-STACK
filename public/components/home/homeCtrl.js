@@ -11,5 +11,13 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
 		}
 	}
 
+	$scope.signout = function() {
+		//Clear token when logout
+		sessionStorage.clear();
+
+		//Todo: Logout Page
+		$window.location.href = '/login.html';
+	}
+
 	$scope.verifyToken();
 });
