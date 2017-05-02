@@ -10,5 +10,11 @@ testPortalApp.controller('userProfileCtrl', function($scope, $window, $http) {
 		}).error(function(err) {console.log(err)});
 	}
 
+	$scope.createNewUser = function() {
+		$http.get('/signup').success(function(res) {
+
+		}).error(function(err) {console.log(err)});
+	}
+
 	$scope.getUserProfile();
 });

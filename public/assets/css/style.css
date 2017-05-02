@@ -243,3 +243,7 @@ body {
   color: #fff;
   text-decoration: none;
 }
+
+.user-profile {
+  margin: 20px;
+}

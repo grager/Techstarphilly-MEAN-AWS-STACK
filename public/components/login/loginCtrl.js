@@ -20,13 +20,4 @@ loginApp.controller('loginCtrl', function($scope, $http, $window) {
 		}).error(function(err) {console.log(err)});
 	}
 
-	$scope.getListOfUsers = function() {
-
-		let token = $window.sessionStorage.getItem('token');
-
-		$http.get('/api/getAllUsers', { headers: {'x-access-token': token} }).success(function(res) {
-			console.log(res);
-		}).error(function(err) {console.log(err)});
-	}
-
 });

@@ -11,10 +11,11 @@ module.exports = router;
 //Sign up users
 router.get('/signup', function(req, res) {
 	var userModel = new UserModel({
-		email:'karenmou9501@gmail.com',
-		name: 'karenmou',
-		password: 'karl111024',
-		admin: true
+		email:'techstarphilly@gmail.com',
+		name: 'techstarphilly',
+		password: 'welcome123',
+		userGroup: 'ba',
+		admin: false
 	})
 
 	//save the sample user
