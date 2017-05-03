@@ -5,9 +5,14 @@ testPortalApp.controller('userProfileCtrl', function($scope, $window, $http) {
 		let token = $window.sessionStorage.getItem('token');
 
 		$http.get('/api/getAllUsers', { headers: {'x-access-token': token} }).success(function(res) {
-			console.log(res);
+			
 			$scope.users = res;
-		}).error(function(err) {console.log(err)});
+
+		}).error(function(err) {
+
+			$window.location.href = '/main.html';
+			
+		});
 	}
 
 	$scope.createNewUser = function() {
