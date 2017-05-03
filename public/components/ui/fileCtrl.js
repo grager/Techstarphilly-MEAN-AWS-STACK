@@ -6,6 +6,8 @@ testPortalApp.controller('fileCtrl', function($scope, $window, $http) {
 		$http.get('/getListOfFiles').success(function(res) {
 
 			$scope.files = res.Contents;
+
+			$scope.totalItems = res.Contents.length;
 			
 		}).error(function(err) {console.log(err)});
 	}
@@ -22,4 +24,8 @@ testPortalApp.controller('fileCtrl', function($scope, $window, $http) {
 	}
 
 	$scope.getAllFiles();
+
+	//Pagination
+	$scope.itemsPerPage = 5;
+	$scope.currentPage = 1;
 });

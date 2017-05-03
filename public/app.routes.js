@@ -1,4 +1,4 @@
-var testPortalApp = angular.module('testPortalApp', ['ui.router']);
+var testPortalApp = angular.module('testPortalApp', ['ui.router', 'ui.bootstrap']);
 
 testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     

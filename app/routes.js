@@ -24,7 +24,10 @@ router.use('/api',function(req, res, next) {
 
       if (err) {
 
-        return res.json('Failed to authenticate token.');
+        return res.send({
+          success: false,
+          message:'Failed to authenticate token.'
+        });
 
       } else {
         // if everything is good, save to request for use in other routes
