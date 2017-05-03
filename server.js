@@ -9,6 +9,7 @@ const express = require('express'),
 	  bodyParser = require('body-parser'),
 	  morgan = require('morgan'),
 	  AWS = require('aws-sdk');
+	  //uuidV4 = require('uuid/v4')
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // use morgan to log requests to the console
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 //configure our application
 //tell express where to look for static assets
@@ -37,6 +38,7 @@ app.use(require('./app/routes/notification'));
 app.use(require('./app/routes/uiQuestions'));
 app.use(require('./app/routes/posts'));
 app.use(require('./app/routes/users'));
+app.use(require('./app/routes/files'));
 
 app.all('/*', function(req, res) {
     // Just send the index.html for other files to support HTML5Mode

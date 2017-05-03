@@ -20,7 +20,8 @@
     "mongoose-increment": "^0.6.1",
     "morgan": "^1.8.1",
     "nodemailer": "^4.0.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

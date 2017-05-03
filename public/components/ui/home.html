@@ -6,18 +6,20 @@
           <li class="breadcrumb-item active">Web Developer</li>
         </ol>
     </div>
-    <div class="content__block-content">
+    <div class="content__block-content" ng-controller="fileCtrl">
       <table class="table table-striped user-profile__table">
         <thead class="thead-inverse">
           <tr>
             <th>File Name</th>
-            <th>Attachments</th>
+            <th>File Owner</th>
+            <th>Last Modified</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Test Name</td>
-            <td>file name test name</td>
+          <tr ng-repeat="file in files">
+            <td><a ng-click="getSignedUrl(file.Key)">{{file.Key}}</a></td>
+            <td>{{file.Owner.DisplayName}}</td>
+            <td>{{file.LastModified}}</td>
           </tr>
         </tbody>
       </table>
