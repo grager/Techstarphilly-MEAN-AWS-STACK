@@ -1,0 +1,68 @@
+<div class="content__block">
+  <div class="content__block-header">
+      <ol class="breadcrumb content__block-header-list">
+        <li class="breadcrumb-item"><a ui-sref="userProfile" ui-sref-active="active">User Profile</a></li>
+        <li class="breadcrumb-item active">Personal Information</li>
+      </ol>
+  </div>
+  <div class="content__block-content" ng-controller="userDetailCtrl">
+    <div class="card user-profile__container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="user-profile__img-container">
+            <img ng-src="/assets/img/users/{{userDetail.name}}.jpg" class="user-profile__img-content" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <form class="px-5 pt-3">
+              <div class="form-group row">
+                <label for="username" class="col-4 col-form-label">Name</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="username" value="{{userDetail.name}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="sex" class="col-4 col-form-label">Sex</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="sex" value="{{userDetail.sex}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="dob" class="col-4 col-form-label">Date of Birth</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="dob" value="{{userDetail.dob}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="major" class="col-4 col-form-label">Major</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="major" value="{{userDetail.major}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="university" class="col-4 col-form-label">University</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="university" value="{{userDetail.school}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="identity" class="col-4 col-form-label">Identity</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="identity" value="{{userDetail.identity}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="startDate" class="col-4 col-form-label">Start Date</label>
+                <div class="col-8">
+                  <input class="form-control" type="text" id="startDate" value="{{userDetail.startDate}}">
+                </div>
+              </div>
+          </form>
+          <div class="text-md-right mr-5 mb-2">
+            <button type="button" class="btn btn-warning">Send Email</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -62,6 +62,11 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/profile/userProfile.html'
         })
 
+        .state('userDetail', {
+            url: '/userDetail',
+            templateUrl: 'components/profile/userDetail.html'
+        })
+
 
     $locationProvider.html5Mode(true);
                 

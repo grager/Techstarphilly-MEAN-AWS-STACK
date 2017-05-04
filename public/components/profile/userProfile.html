@@ -10,7 +10,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="user in users">
+			<tr ng-repeat="user in users" ng-click="getUserDetail(user.email)" ui-sref="userDetail" ui-sref-active="active">
 				<td>{{user.name}}</td>
 				<td>{{user.email}}</td>
 				<td>{{user.userGroup}}</td>

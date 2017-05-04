@@ -393,3 +393,18 @@ body {
 .user-profile {
   margin: 20px;
 }
+.user-profile__table tbody tr {
+  cursor: pointer;
+}
+.user-profile__container {
+  max-width: 900px;
+}
+.user-profile__img-container {
+  margin-top: 20px;
+}
+.user-profile__img-content {
+  display: block;
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+}

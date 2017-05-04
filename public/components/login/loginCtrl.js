@@ -20,4 +20,10 @@ loginApp.controller('loginCtrl', function($scope, $http, $window) {
 		}).error(function(err) {console.log(err)});
 	}
 
+	$scope.signup = function() {
+		$http.get('/signup').success(function(res) {
+			console.log(res);
+		}).error(function(err) {console.log(err)});
+	}
+
 });

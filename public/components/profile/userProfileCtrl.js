@@ -1,5 +1,6 @@
 
-testPortalApp.controller('userProfileCtrl', function($scope, $window, $http) {
+testPortalApp.controller('userProfileCtrl', function($scope, $window, $http, userProfile) {
+	
 	$scope.getUserProfile = function() {
 
 		let token = $window.sessionStorage.getItem('token');
@@ -23,10 +24,10 @@ testPortalApp.controller('userProfileCtrl', function($scope, $window, $http) {
 		});
 	}
 
-	$scope.createNewUser = function() {
-		$http.get('/signup').success(function(res) {
+	$scope.getUserDetail = function(data) {
 
-		}).error(function(err) {console.log(err)});
+		userProfile.setData(data);
+		
 	}
 
 	$scope.getUserProfile();

@@ -49,3 +49,18 @@ testPortalApp.factory("deleteQuestion", function($http) {
     return myFactory;
     
 });
+
+//Share personal information between controllers 
+testPortalApp.factory('userProfile', function() {
+
+    var user;
+
+    return {
+        getData: function() {
+            return user;
+        },
+        setData: function(data) {
+            user = data;
+        }
+    }
+});

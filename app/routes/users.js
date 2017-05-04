@@ -11,18 +11,24 @@ module.exports = router;
 //Sign up users
 router.get('/signup', function(req, res) {
 	var userModel = new UserModel({
-		email:'techstarphilly@gmail.com',
-		name: 'techstarphilly',
-		password: 'welcome123',
+		email:'karenmou9501@gmail.com',
+		name: 'mouqinyao',
+		password: 'karl111024',
+		sex: 'female',
+    	dob: '10/01/1991',
+    	major: 'Finance',
+    	school: 'Syracuse Univerity',
+    	identity: 'H1B',
+    	startDate: '05/02/2017',
 		userGroup: 'ba',
-		admin: false
+		admin: true
 	})
 
 	//save the sample user
 	userModel.save(function(err) {
 		if (err) res.send(err);
 		
-		res.json('This account has been created successfully.');
+		res.send('This account has been created successfully.');
 
 	});
 });
@@ -33,8 +39,19 @@ router.get('/api/getAllUsers', function(req, res) {
 	UserModel.find(function(err, users) {
         if (err) res.send(err);
 
-        res.json(users);
+        res.send(users);
     });
+});
+
+//Get user detail
+router.post('/getUserDetail', function(req, res) {
+
+	UserModel.findOne({email: req.body.email}, function(err, user) {
+		
+		if (err) res.send(err);
+
+		res.send(user);
+	});
 });
 
 //authentication
