@@ -1,6 +1,5 @@
-var loginApp = angular.module('loginApp',[]);
 
-loginApp.controller('loginCtrl', function($scope, $http, $window) {
+loginApp.controller('loginCtrl', function($scope, $http, $window, $state) {
 
 	$scope.userInfo = {};
 
@@ -20,9 +19,14 @@ loginApp.controller('loginCtrl', function($scope, $http, $window) {
 		}).error(function(err) {console.log(err)});
 	}
 
+	$scope.singupInfo = {};
+
 	$scope.signup = function() {
-		$http.get('/signup').success(function(res) {
-			console.log(res);
+
+		$http.post('/signup', $scope.singupInfo).success(function(res) {
+
+			$state.go('signin');
+
 		}).error(function(err) {console.log(err)});
 	}
 

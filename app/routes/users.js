@@ -9,8 +9,8 @@ const express = require('express'),
 module.exports = router;
 
 //Sign up users
-router.get('/signup', function(req, res) {
-	var userModel = new UserModel({
+router.post('/signup', function(req, res) {
+	/*var userModel = new UserModel({
 		email:'karenmou9501@gmail.com',
 		name: 'mouqinyao',
 		password: 'karl111024',
@@ -22,7 +22,9 @@ router.get('/signup', function(req, res) {
     	startDate: '05/02/2017',
 		userGroup: 'ba',
 		admin: true
-	})
+	})*/
+
+	var userModel = new UserModel(req.body);
 
 	//save the sample user
 	userModel.save(function(err) {

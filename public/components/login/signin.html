@@ -1,0 +1,14 @@
+<div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="assets/img/team/3.jpg" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="userInfo.email">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="userInfo.password">
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="signin()">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ui-sref="signup" ui-sref-active="active">Sign up</button>
+    </form>
+    <a href="#" class="forgot-password">
+        Forgot the password?
+    </a>
+</div>
