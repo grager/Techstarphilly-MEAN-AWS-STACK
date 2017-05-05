@@ -1,4 +1,4 @@
-var loginApp = angular.module('loginApp',['ui.router']);
+var loginApp = angular.module('loginApp',['ui.router', 'ui.bootstrap']);
 
 loginApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     
@@ -15,6 +15,11 @@ loginApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) 
         .state('signup', {
             url: '/signup',
             templateUrl: 'components/login/signup.html'
+        })
+
+        .state('forgotPassword', {
+            url: '/forgotPassword',
+            templateUrl: 'components/login/forgotPassword.html'
         })
 
     $locationProvider.html5Mode(true);

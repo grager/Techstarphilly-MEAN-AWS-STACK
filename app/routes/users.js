@@ -10,21 +10,8 @@ module.exports = router;
 
 //Sign up users
 router.post('/signup', function(req, res) {
-	/*var userModel = new UserModel({
-		email:'karenmou9501@gmail.com',
-		name: 'mouqinyao',
-		password: 'karl111024',
-		sex: 'female',
-    	dob: '10/01/1991',
-    	major: 'Finance',
-    	school: 'Syracuse Univerity',
-    	identity: 'H1B',
-    	startDate: '05/02/2017',
-		userGroup: 'ba',
-		admin: true
-	})*/
 
-	var userModel = new UserModel(req.body);
+	let userModel = new UserModel(req.body);
 
 	//save the sample user
 	userModel.save(function(err) {
@@ -97,6 +84,22 @@ router.post('/authenticate', function(req, res) {
 			}
 		}
 	});
+});
+
+//Update password based on email
+router.put('/updatePassord', function(req, res) {
+
+	UserModel.findOne({email: req.body.email}, function(err, user) {
+
+		user.password = req.body.password;
+
+		user.save(function(err) {
+
+			if (err) res.send(err);
+			res.json('The password has been updated successfully.')
+    	});			
+		
+	})
 });
 
 
