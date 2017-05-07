@@ -1,3 +1,7 @@
+.announcement {
+  padding: 20px 0 0 20px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -46,7 +50,7 @@ body {
 }
 
 .file-table {
-  margin: 0 20px 20px;
+  margin: 0 15px 0;
   width: 96%;
 }
 .file-table a {
