@@ -156,6 +156,15 @@ body {
   color: #fff;
 }
 
+.notification {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  width: 800px;
+  background: #fff;
+}
+
 .pagination-content {
   margin-right: 20px;
   float: right;

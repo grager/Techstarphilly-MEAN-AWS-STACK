@@ -67,6 +67,11 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/profile/userDetail.html'
         })
 
+        .state('userDetail.sendNotification', {
+            url: '/sendNotification',
+            templateUrl: 'components/profile/sendNotification.html'
+        })
+
 
     $locationProvider.html5Mode(true);
                 
