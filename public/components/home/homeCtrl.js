@@ -11,6 +11,16 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
 		}
 	}
 
+	$scope.getListOfAnnouncements = function() {
+
+		let user = JSON.parse($window.sessionStorage.getItem('authenticatedUser'));
+		
+		$http.post('/getFilteredAnnouncement', {mapId: user.email}).success(function(res) {
+
+			$scope.announcements = res;
+		}).error(function(err) {console.log(err)});
+	}
+
 	$scope.signout = function() {
 		//Clear token when logout
 		sessionStorage.clear();
@@ -20,4 +30,5 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
 	}
 
 	$scope.verifyToken();
+	$scope.getListOfAnnouncements();
 });

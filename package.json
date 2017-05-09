@@ -1,7 +1,7 @@
 {
   "name": "online-test",
   "version": "1.0.0",
-  "description": "techstarphilly website and online test portal",
+  "description": "techstarphilly website and admin portal",
   "main": "server.js",
   "scripts": {
     "test": "nodemon",
