@@ -1,17 +1,22 @@
 <div class="content-block">
-	<div class="row">
-		<div class="col-md-6">
+	<div class="row max-container">
+		<div class="col-md-4">
 			<div class="announcement">
-				<div class="alert" role="alert" ng-repeat="announcement in announcements" ng-class="{'alert-success': $index%4 == 0, 'alert-info': $index%4 == 1, 'alert-warning': $index%4 == 2, 'alert-danger': $index%4 == 3}">
+				<div class="alert" role="alert" ng-repeat="announcement in announcements.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))" ng-class="{'alert-success': $index%4 == 0, 'alert-info': $index%4 == 1, 'alert-warning': $index%4 == 2, 'alert-danger': $index%4 == 3}">
 				  <h4><strong>{{announcement.title}}</strong></h4>
 				  <h6>{{announcement.subTitle}}</h6>
 				  <p>{{announcement.body}}</p>
 				  <a href="{{announcement.fileUrl}}" class="alert-link" target="_blank">{{announcement.fileName}}</a>
 				</div>				
 			</div>
+			<div class="pagination-content">
+		        <ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
+		    </div>
 		</div>
-		<div class="col-md-6">
-			class schedule placeholder
+		<div class="col-md-8">
+			<div class="calendar">
+				<div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
+			</div>
 		</div>
 	</div>
 </div>	
