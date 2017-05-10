@@ -9,13 +9,8 @@ module.exports = router;
 
 //Create Announcement
 router.post('/createAnnouncement', function(req, res) {
-	var announcementModel = new AnnouncementModel({
-		title: 'This is the test title',
-    	subTitle: 'This is the test subtitle',
-		body: 'This is a test annoucement', 
-    	mapId: 'mouqinyao@gmail.com',
-    	mapGroup: 'ui'
-	});
+
+	var announcementModel = new AnnouncementModel(req.body);
 
 	announcementModel.save(function(err, annoucement) {
 		if (err) res.send(err);

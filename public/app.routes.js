@@ -68,8 +68,13 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
         })
 
         .state('userDetail.sendNotification', {
-            url: '/sendNotification',
-            templateUrl: 'components/profile/sendNotification.html'
+            url: '/sendNotification/{email}',
+            templateUrl: 'components/profile/sendNotification.html',
+            controller: function($scope, $stateParams) {
+                // get the email
+                $scope.email = $stateParams.email;
+   
+            }
         })
 
 

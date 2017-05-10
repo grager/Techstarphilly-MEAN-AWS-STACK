@@ -1,4 +1,4 @@
-testPortalApp.controller('userDetailCtrl', function($scope, $window, $http, userProfile) {
+testPortalApp.controller('userDetailCtrl', function($scope, $window, $state, $http, userProfile) {
 	$scope.getUserDetail = function() {
 
 		let email = {email: userProfile.getData()};
@@ -11,4 +11,16 @@ testPortalApp.controller('userDetailCtrl', function($scope, $window, $http, user
 	}
 
 	$scope.getUserDetail();
+
+	$scope.sendNotification = function() {
+
+		let email = userProfile.getData();
+
+		$state.go('userDetail.sendNotification', {myParam: email});
+
+		console.log(email)
+
+	}
+
+	
 });
