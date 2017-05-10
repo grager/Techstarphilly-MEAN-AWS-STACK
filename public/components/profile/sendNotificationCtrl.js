@@ -31,6 +31,8 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 		//Save announcement entry to db
 		$http.post('/createAnnouncement', $scope.notification).success(function(res) {
+			//Send email after create notification
+			$scope.sendEmailNotification($scope.notification);
 
 		 	//Go back to parent state
 	    	$state.go('^');
@@ -40,5 +42,14 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 	$scope.cancelNotification = function() {		
 		//Go back to parent state
 	 	$state.go('^');
+	}
+
+	$scope.sendEmailNotification = function(data) {
+
+		//Send email from techstarphillyinfo@gmail.com
+		$http.post('/sendEmailNotification', data).success(function(res) {
+			console.log(res);
+
+		}).error(function(err) {console.log(err)});
 	}
 });
