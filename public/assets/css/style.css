@@ -166,7 +166,7 @@ body {
 }
 .notification__top {
   height: 40px;
-  background-color: #797979;
+  background-color: #c9302c;
 }
 .notification__top h4 {
   padding: 5px 0 0 15px;
@@ -187,7 +187,7 @@ body {
   height: 150px;
 }
 .notification__bottom {
-  padding: 10px 10px 20px 10px;
+  padding: 10px 20px 10px 10px;
   width: 100%;
   position: absolute;
   bottom: 0px;

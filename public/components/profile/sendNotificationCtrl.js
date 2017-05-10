@@ -13,4 +13,10 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 		}).error(function(err) {console.log(err)});
 
 	}
+
+	$scope.cancelNotification = function() {
+		
+		//Go back to parent state
+	 	$state.go('^');
+	}
 });
