@@ -5,7 +5,8 @@
 				<div class="alert" role="alert" ng-repeat="announcement in announcements" ng-class="{'alert-success': $index%4 == 0, 'alert-info': $index%4 == 1, 'alert-warning': $index%4 == 2, 'alert-danger': $index%4 == 3}">
 				  <h4><strong>{{announcement.title}}</strong></h4>
 				  <h6>{{announcement.subTitle}}</h6>
-				  <a href="#" class="alert-link">{{announcement.body}}</a>.
+				  <p>{{announcement.body}}</p>
+				  <a href="{{announcement.fileUrl}}" class="alert-link" target="_blank">{{announcement.fileName}}</a>
 				</div>				
 			</div>
 		</div>

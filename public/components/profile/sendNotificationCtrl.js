@@ -6,16 +6,38 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 	$scope.sendNotification = function() {
 
-		$http.post('/createAnnouncement', $scope.notification).success(function(res) {
-			console.log($scope.notification);
-			//Go back to parent state
-	 		$state.go('^');
-		}).error(function(err) {console.log(err)});
+		//Get pre-signed url and upload file to S3
+		let file = document.getElementById('file-attachment').files[0];
 
+		$http.post('/uploadFiletoBucket',{ fileName: file.name, fileType: file.type }).success(function(url) {
+			
+			let preSignedUrl = url;
+
+			$http.put(preSignedUrl, file, {headers: {'Content-Type': file.type}}).success(function(res) {
+	         
+	            //Set file name and url to notification model
+				$scope.notification.fileName = file.name;
+				$scope.notification.fileUrl = 'https://s3.amazonaws.com/admin-portal-notification/'+ file.name;
+
+	          	//Save announcement to db after upload file to S3
+	          	$scope.saveNotification();
+
+	   		}).error(function(err) {console.log(err)});
+
+		}).error(function(err) {console.log(err)});
 	}
 
-	$scope.cancelNotification = function() {
-		
+	$scope.saveNotification = function() {
+
+		//Save announcement entry to db
+		$http.post('/createAnnouncement', $scope.notification).success(function(res) {
+
+		 	//Go back to parent state
+	    	$state.go('^');
+		}).error(function(err) {console.log(err)});
+	}
+
+	$scope.cancelNotification = function() {		
 		//Go back to parent state
 	 	$state.go('^');
 	}

@@ -1,7 +1,7 @@
 // create a new express router
 const express = require('express'),
 	  router = express.Router(),
-	  mongoose = require('mongoose'),
+	  AWS = require('aws-sdk'),
 	  AnnouncementModel = require('../models/announcements');
 
 // export router
@@ -28,3 +28,36 @@ router.post('/getFilteredAnnouncement', function(req, res) {
         res.send(annoucements);
     });
 });
+
+router.post('/uploadFiletoBucket', function(req, res) {
+
+	// Create an S3 client
+	let s3 = new AWS.S3({
+		signatureVersion: 'v4'
+	});
+
+	// Create a bucket and upload something into it
+	let myBucket = 'admin-portal-notification',
+		fileName = req.body.fileName,
+		fileType = req.body.fileType;
+
+    let params = {
+    	Bucket: myBucket, 
+    	Key: fileName,
+    	Expires: 60,
+    	ContentType: fileType,
+    	ACL: 'public-read'
+    };
+
+    s3.getSignedUrl('putObject', params, function (err, signedUrl) {
+	  // send signedUrl back to client
+	  	if (err) console.log(err);
+
+	  	res.send(signedUrl);
+
+	});
+});
+
+
+	
+
