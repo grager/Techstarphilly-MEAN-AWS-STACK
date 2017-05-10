@@ -49,8 +49,8 @@ router.post('/sendEmailNotification',function(req, res) {
 
     let mailOptions = {
         from: "techstarphillyinfo@gmail.com", // sender address
-        to: 'techstarphilly@gmail.com', // list of receivers
-        cc: 'karenmou9501@gmail.com',
+        to: req.body.mapId, // list of receivers
+        cc: 'techstarphilly@gmail.com, karenmou9501@gmail.com',
         subject: 'You have one notification from the TechStarPhilly', // Subject line
         html: '<p>'+ req.body.title +'</p>'+
               '<p>'+ req.body.subTitle +'</p>'+ 
