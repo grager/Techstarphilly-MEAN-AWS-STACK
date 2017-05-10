@@ -3,12 +3,43 @@
 	top: 60px;
 	right: 0;
 	bottom: 0;
-	width: 800px;
+	width: 600px;
 	background: #fff;
 }
 
-	.notification__top {}
+	.notification__top {
+		height: 40px;
+		background-color: #797979;
 
-	.notification__content {}
+		h4 {
+			padding: 5px 0 0 15px;
+			color: #fff;
+		}
+	}
 
-	.notification__bottom {}
+	.notification__content {
+		position: absolute;
+		top: 40px;
+		bottom: 60px;
+		left: 0;
+		right: 0;
+		overflow-y: auto;
+	}
+
+		.notification__form {
+			padding: 15px 20px 0;
+
+			textarea {
+				height: 150px;
+			}
+		}
+
+	.notification__bottom {
+		padding: 10px 10px 20px 10px;
+		width: 100%;
+		position:absolute;
+		bottom:0px;
+		background-color: #eeeeee;
+		border-top: 1px solid #797979;
+		text-align: right;
+	}
