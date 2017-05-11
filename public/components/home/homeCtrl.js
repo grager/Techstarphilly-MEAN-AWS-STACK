@@ -37,6 +37,11 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
 	$scope.itemsPerPage = 4;
 	$scope.currentPage = 1;
 
+	var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
 	//Calendar
 	$scope.uiConfig = {
       calendar:{
@@ -46,14 +51,22 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
           left: 'month basicWeek basicDay agendaWeek agendaDay',
           center: 'title',
           right: 'today prev,next'
-        },
-        eventClick: $scope.alertEventOnClick,
-        eventDrop: $scope.alertOnDrop,
-        eventResize: $scope.alertOnResize
+        }
+        //eventClick: $scope.alertEventOnClick,
+        //eventDrop: $scope.alertOnDrop,
+       // eventResize: $scope.alertOnResize
       }
     }
 
-    $scope.eventSources = {
-    	
-    }
+    $scope.eventSources = [{
+		events: [
+			{
+				title: 'From',
+				start: '2015-01-31',
+				allDay: true,
+				rendering: 'background',
+				backgroundColor: '#f26522',
+			},
+		],
+	}];
 });
