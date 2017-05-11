@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // use morgan to log requests to the console
-//app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 //configure our application
 //tell express where to look for static assets

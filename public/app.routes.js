@@ -72,14 +72,27 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/profile/sendNotification.html',
             controller: function($scope, $stateParams) {
                 // get the email
-                $scope.email = $stateParams.email;
-   
+                $scope.email = $stateParams.email;   
             }
         })
 
         .state('events', {
             url: '/events',
             templateUrl: 'components/events/events.html'
+        })
+
+        .state('events.createEvent', {
+            url: '/createEvent',
+            templateUrl: 'components/events/createEvent.html'
+        })
+
+        .state('events.editEvent', {
+            url: '/editEvent/{id}',
+            templateUrl: 'components/events/editEvent.html',
+            controller: function($scope, $stateParams) {
+                // get the id
+                $scope.id = $stateParams.id;   
+            }
         })
 
 

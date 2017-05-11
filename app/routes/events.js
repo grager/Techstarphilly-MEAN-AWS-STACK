@@ -8,17 +8,7 @@ module.exports = router;
 
 router.post('/createEvent', function(req, res) {
 
-	var eventModel = new EventsModel({
-
-		title: "Repeating Event",
-	    content: "Training Seminar",
-	    url: "",
-	    time: "9:00am - 5:00pm",
-	    location: "Central Philadephia",
-	    allDay: true,
-	    startDate: "2017-05-13",
-	    endDate: "2017-05-13"
-	});
+	var eventModel = new EventsModel(req.body);
 
 	eventModel.save(function(err) {
 		if (err) res.send(err);
@@ -36,8 +26,17 @@ router.get('/getAllEvents', function(req, res) {
     });
 });
 
-router.put('/updateEvent:id', function(req, res) {
+router.get('/getSingleEvent/:id', function(req, res) {
 
+    EventsModel.findOne({"id": req.params.id},function(err, event) {       
+        if (err) res.send(err);
+
+        res.send(event);
+    });
+});
+
+router.put('/updateEvent/:id', function(req, res) {
+    
 	EventsModel.findOne({"id":req.params.id}, function(err, event) {
         
         event.title = req.body.title;
@@ -49,7 +48,7 @@ router.put('/updateEvent:id', function(req, res) {
         event.startDate = req.body.startDate;
         event.endDate = req.body.endDate;
 
-        question.save(function(err) {
+        event.save(function(err) {
 			if (err) res.send(err);
 
 			res.send('This event has been updated successfully.')

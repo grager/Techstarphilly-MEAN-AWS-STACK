@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="event in events">
+				<tr ng-repeat="event in events" ui-sref="events.editEvent({id: event.id})" ui-sref-active="active">
 					<td>{{event.title}}</td>
 					<td>{{event.content}}</td>
 					<td>{{event.url}}</td>
@@ -25,4 +25,9 @@
 			</tbody>
 		</table>
 	</div>
+	<div class="content__block-footer text-md-right pr-5">
+		<button type="button" class="btn btn-danger" ui-sref="events.createEvent" ui-sref-active="active"><i class="fa fa-pencil"></i> Create New Event</button>
+	</div>
 </div>
+
+<div ui-view></div>

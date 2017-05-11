@@ -38,6 +38,8 @@
         <script type="text/javascript" src="components/profile/userDetailCtrl.js"></script>
         <script type="text/javascript" src="components/profile/sendNotificationCtrl.js"></script>
         <script type="text/javascript" src="components/events/eventsCtrl.js"></script>
+        <script type="text/javascript" src="components/events/createEventCtrl.js"></script>
+        <script type="text/javascript" src="components/events/editEventCtrl.js"></script>
         
     </head>
 
@@ -72,7 +74,7 @@
             <div class="sidebar">
                 <ul class="sidebar__menu">
                     <li class="sidebar__menu-list active">
-                        <a class="sidebar__menu-list-item" ui-sref="home" ui-sref-active="active">
+                        <a class="sidebar__menu-list-item" ui-sref="home" ui-sref-opts="{reload: true}" ui-sref-active="active">
                             <i class="fa fa-home"></i><span>Dashboard</span>
                         </a>
                     </li>
@@ -93,7 +95,7 @@
                         </a>
                     </li>
                     <li class="sidebar__menu-list">
-                        <a class="sidebar__menu-list-item" ui-sref="events" ui-sref-active="active">
+                        <a class="sidebar__menu-list-item" ui-sref="events" ui-sref-opts="{reload: true}" ui-sref-active="active">
                             <i class="fa fa-calendar"></i><span>Manage Events</span>
                         </a>
                     </li>
