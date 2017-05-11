@@ -77,6 +77,11 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             }
         })
 
+        .state('events', {
+            url: '/events',
+            templateUrl: 'components/events/events.html'
+        })
+
 
     $locationProvider.html5Mode(true);
                 
