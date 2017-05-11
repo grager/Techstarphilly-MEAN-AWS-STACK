@@ -37,40 +37,49 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
 	$scope.itemsPerPage = 4;
 	$scope.currentPage = 1;
 
-	//Calendar
-	$scope.uiConfig = {
-      calendar:{
-        height: 650,
-        editable: true,
-        header:{
-          left: 'month basicWeek basicDay agendaWeek agendaDay',
-          center: 'title',
-          right: 'today prev,next'
-        }
-        //eventClick: $scope.alertEventOnClick,
-        //eventDrop: $scope.alertOnDrop,
-        //eventResize: $scope.alertOnResize
-      }
-    }
+	$scope.generateCalendar = function() {
 
-    //Load events to Calendar
-    let date = new Date(),
-     	d = date.getDate(),
-     	m = date.getMonth(),
-     	y = date.getFullYear();
+		$scope.uiConfig = {
+	      calendar:{
+	        height: 650,
+	        editable: true,
+	        header:{
+	          left: 'month basicWeek basicDay agendaWeek agendaDay',
+	          center: 'title',
+	          right: 'today prev,next'
+	        }
+	      }
+	    }
 
-    $scope.eventSource = {
-    	//color: '#f00',
-        textColor: '#fff',
-    	events:[
-	      {title: 'All Day Event',start: "2017-05-11", end: "2017-05-12"},
-	      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-	      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-	      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-	      {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
-	      {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-	    ]
+		$http.get('/getAllEvents').success(function(res) {			
+
+			let events = [];
+			
+			//Format date object
+			_.forEach(res, function(value, key) {
+
+				value.startDate = moment(value.startDate).format("YYYY-MM-DD");
+				value.endDate = moment(value.endDate).format("YYYY-MM-DD");
+
+				events.push({
+					title: value.title,
+					start: value.startDate,
+					end: value.endDate,
+					allDay: value.allDay,
+					url: value.url
+				});
+			});
+
+			$scope.eventSource = {
+		        textColor: '#fff',
+		    	events: events
+			}
+
+			$scope.eventSources = [$scope.eventSource];
+
+		}).error(function(res) {console.log(err)});
+	
 	}
 
-    $scope.eventSources = [$scope.eventSource];
+	$scope.generateCalendar();
 });

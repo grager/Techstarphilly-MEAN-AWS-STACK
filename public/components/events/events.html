@@ -1,3 +1,28 @@
 <div class="content__block">
-	<div class="content__block-content" ng-controller="eventsCtrl"></div>
+	<div class="content__block-content" ng-controller="eventsCtrl">
+		<table class="table table-striped event-table">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Title</th>
+					<th>Content</th>
+					<th>URL</th>
+					<th>Time</th>
+					<th>Location</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="event in events">
+					<td>{{event.title}}</td>
+					<td>{{event.content}}</td>
+					<td>{{event.url}}</td>
+					<td>{{event.time}}</td>
+					<td>{{event.location}}</td>
+					<td>{{event.startDate}}</td>
+					<td>{{event.endDate}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
