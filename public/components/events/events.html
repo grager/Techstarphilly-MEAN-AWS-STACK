@@ -1,5 +1,9 @@
 <div class="content__block">
 	<div class="content__block-content" ng-controller="eventsCtrl">
+		<div content__block-content-header>
+			<h4 class="float-left">List of All Events</h4>
+			<button type="button" class="btn btn-danger float-right mb-2" ui-sref="events.createEvent" ui-sref-active="active"><i class="fa fa-pencil"></i> Create New Event</button>
+		</div>
 		<table class="table table-striped event-table">
 			<thead class="thead-inverse">
 				<tr>
@@ -24,9 +28,6 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
-	<div class="content__block-footer text-md-right pr-5">
-		<button type="button" class="btn btn-danger" ui-sref="events.createEvent" ui-sref-active="active"><i class="fa fa-pencil"></i> Create New Event</button>
 	</div>
 </div>
 

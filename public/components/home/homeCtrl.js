@@ -1,4 +1,4 @@
-testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
+testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 
 	$scope.user = JSON.parse($window.sessionStorage.getItem('authenticatedUser'));
 
@@ -82,4 +82,7 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http) {
 	}
 
 	$scope.generateCalendar();
+
+	//Reload to fix ui-calendar
+	setTimeout(function() {$state.reload()}, 3000);
 });
