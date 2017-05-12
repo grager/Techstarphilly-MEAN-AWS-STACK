@@ -10,7 +10,10 @@ testPortalApp.controller('userDetailCtrl', function($scope, $window, $state, $ht
 			//Format Date Object
 			$scope.userDetail.startDate = moment(res.startDate).format("YYYY-MM-DD");
 		
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#userDetailErrorModal").modal();
+		});
 	}
 
 	$scope.getUserDetail();

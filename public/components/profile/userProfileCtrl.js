@@ -22,7 +22,7 @@ testPortalApp.controller('userProfileCtrl', function($scope, $window, $http, use
 
 		}).error(function(err) {
 
-			$window.location.href = '/main.html';
+			$("#userProfileErrorModal").modal();
 			
 		});
 	}

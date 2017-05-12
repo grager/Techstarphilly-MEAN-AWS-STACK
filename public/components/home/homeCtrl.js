@@ -19,7 +19,10 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 
 			$scope.announcements = res;
 			$scope.totalItems = res.length;
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#homeErrorModal").modal();
+		});
 	}
 
 	$scope.signout = function() {
@@ -77,7 +80,10 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 
 			$scope.eventSources = [$scope.eventSource];
 
-		}).error(function(res) {console.log(err)});
+		}).error(function(res) {
+
+			$("#homeErrorModal").modal();
+		});
 	
 	}
 
@@ -87,8 +93,9 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 	setTimeout(function() {$state.reload()}, 3000);
 
 	$scope.reloadState = function(state) {
+
 		//Go back to parent state and reload
-	    $state.go(state, {}, { reload: true });
+		state != undefined ? $state.go(state, {}, { reload: true }) : $window.location.href = '/main.html';
 
 	    //Remove modal backdrop
 	    $('.modal-backdrop').remove();

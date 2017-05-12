@@ -22,9 +22,15 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 	          	//Save announcement to db after upload file to S3
 	          	$scope.saveNotification();
 
-	   		}).error(function(err) {console.log(err)});
+	   		}).error(function(err) {
 
-		}).error(function(err) {console.log(err)});
+	   			$("#notificationErrorModal").modal();
+	   		});
+
+		}).error(function(err) {
+
+			$("#notificationErrorModal").modal();
+		});
 	}
 
 	$scope.saveNotification = function() {
@@ -34,9 +40,10 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 			//Send email after create notification
 			$scope.sendEmailNotification($scope.notification);
 
-		 	//Go back to parent state
-	    	$state.go('^');
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#notificationErrorModal").modal();
+		});
 	}
 
 	$scope.cancelNotification = function() {		
@@ -48,8 +55,12 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 		//Send email from techstarphillyinfo@gmail.com
 		$http.post('/sendEmailNotification', data).success(function(res) {
-			console.log(res);
+			
+			$("#sendNotificationModal").modal();
 
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+			
+			$("#notificationErrorModal").modal();
+		});
 	}
 });
