@@ -26,6 +26,6 @@ testPortalApp.controller('fileCtrl', function($scope, $window, $http) {
 	$scope.getAllFiles();
 
 	//Pagination
-	$scope.itemsPerPage = 5;
+	$scope.itemsPerPage = 7;
 	$scope.currentPage = 1;
 });

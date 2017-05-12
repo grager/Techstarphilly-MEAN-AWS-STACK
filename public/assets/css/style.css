@@ -48,7 +48,7 @@ body {
   width: 100%;
 }
 .content__block-header {
-  padding: 0 20px;
+  padding: 10px 20px 0 20px;
 }
 .content__block-header-list {
   margin: 0;
@@ -63,17 +63,6 @@ body {
 }
 .content__block-form {
   padding: 20px;
-}
-
-.file-table {
-  margin: 0 15px 0;
-  width: 96%;
-}
-.file-table a {
-  text-decoration: underline !important;
-  -webkit-text-decoration-color: #1ABB9C;
-  text-decoration-color: #1ABB9C;
-  cursor: pointer;
 }
 
 .interview {
@@ -437,6 +426,9 @@ body {
 .sidebar__menu-list-item .fa-quora {
   font-size: 15px;
 }
+.sidebar__menu-list-item .fa-file-text {
+  font-size: 15px;
+}
 .sidebar__menu-list-item.active {
   border-right: 5px solid #1ABB9C;
 }
@@ -471,6 +463,12 @@ body {
   margin: 20px;
 }
 .user-profile__table tbody tr {
+  cursor: pointer;
+}
+.user-profile__table a {
+  text-decoration: underline !important;
+  -webkit-text-decoration-color: #1ABB9C;
+  text-decoration-color: #1ABB9C;
   cursor: pointer;
 }
 .user-profile__container {

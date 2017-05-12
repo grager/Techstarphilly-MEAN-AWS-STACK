@@ -57,6 +57,21 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/ui/otherQuestions.html'
         })
 
+        .state('files', {
+            url: '/files',
+            templateUrl: 'components/files/home.html'
+        })
+
+        .state('filesba', {
+            url: '/filesba',
+            templateUrl: 'components/files/ba.html'
+        })
+
+        .state('filesui', {
+            url: '/filesui',
+            templateUrl: 'components/files/ui.html'
+        })
+
         .state('userProfile', {
             url: '/userProfile',
             templateUrl: 'components/profile/userProfile.html'

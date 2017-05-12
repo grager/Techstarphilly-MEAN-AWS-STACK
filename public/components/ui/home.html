@@ -6,27 +6,6 @@
           <li class="breadcrumb-item active">Web Developer</li>
         </ol>
     </div>
-    <div class="content__block-content" ng-controller="fileCtrl">
-      <table class="table table-striped file-table">
-        <thead class="thead-inverse">
-          <tr>
-            <th>File Name</th>
-            <th>File Owner</th>
-            <th>Last Modified</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="file in files.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-            <td><a ng-click="getSignedUrl(file.Key)">{{file.Key}}</a></td>
-            <td>{{file.Owner.DisplayName}}</td>
-            <td>{{file.LastModified}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="pagination-content--ui">
-        <ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
-      </div>
-    </div>
     <div class="content__block-content">
         <div class="card-deck">
             <div class="card">
