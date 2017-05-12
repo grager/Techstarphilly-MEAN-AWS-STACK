@@ -115,6 +115,21 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/tests/home.html'
         })
 
+        .state('baQuiz', {
+            url: '/baQuiz',
+            templateUrl: 'components/tests/baQuiz.html'
+        })
+
+        .state('uiQuiz', {
+            url: '/uiQuiz',
+            templateUrl: 'components/tests/uiQuiz.html'
+        })
+
+        .state('uiQuizTemplate', {
+            url: '/uiQuizTemplate',
+            templateUrl: 'components/tests/uiQuizTemplate.html'
+        })
+
 
     $locationProvider.html5Mode(true);
                 

@@ -30,7 +30,7 @@
 		</table>
 	</div>
 	<div class="pagination-content">
-    	<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
+    	<ul uib-pagination total-items="totalItems" data-ng-show="totalItems > itemsPerPage" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
     </div>	
 </div>
 

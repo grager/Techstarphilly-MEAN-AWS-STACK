@@ -21,7 +21,7 @@
 		</table>
 	</div>
 	<div class="pagination-content">
-    	<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
+    	<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" data-ng-show="totalItems > itemsPerPage" ng-model="currentPage"></ul>
     </div>
 </div>
 

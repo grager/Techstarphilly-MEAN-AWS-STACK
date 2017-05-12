@@ -41,6 +41,7 @@ app.use(require('./app/routes/users'));
 app.use(require('./app/routes/files'));
 app.use(require('./app/routes/announcements'));
 app.use(require('./app/routes/events'));
+app.use(require('./app/routes/uiQuiz'));
 
 app.all('/*', function(req, res) {
     // Just send the index.html for other files to support HTML5Mode
