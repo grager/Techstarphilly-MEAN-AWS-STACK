@@ -1,7 +1,7 @@
 testPortalApp.controller('editEventCtrl', function($scope, $state, $http) {
 	
 	$scope.cancelEditEvent = function() {
-		//Go back to parent state
+		//Go back to parent state and reload
 	    $state.go('^');
 	}
 
@@ -14,7 +14,10 @@ testPortalApp.controller('editEventCtrl', function($scope, $state, $http) {
 
 			$scope.event = res;
 
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#saveErrorModal").modal();
+		});
 	}
 
 	$scope.saveEditEvent = function() {
@@ -23,11 +26,12 @@ testPortalApp.controller('editEventCtrl', function($scope, $state, $http) {
 		
 		$http.put('/updateEvent/' + id, $scope.event).success(function(res) {
 
-			console.log(res);
-			//Go back to parent state
-	    	$state.go('^');
+			//Confirmation modal
+			$("#saveEventModal").modal();
 
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+			$("#saveErrorModal").modal();
+		});
 	}
 
 	$scope.getSingleEvent();

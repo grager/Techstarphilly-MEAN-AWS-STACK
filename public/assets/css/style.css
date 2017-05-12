@@ -192,6 +192,12 @@ body {
 .notification__form textarea {
   height: 150px;
 }
+.notification__form label {
+  font-size: 15px;
+}
+.notification__form input {
+  font-size: 14px;
+}
 .notification__bottom {
   padding: 10px 20px 10px 10px;
   width: 100%;

@@ -9,9 +9,12 @@ testPortalApp.controller('createEventCtrl', function($scope, $state, $http) {
 
 	$scope.createNewEvent = function() {
 		$http.post('/createEvent', $scope.event).success(function(res) {
-			console.log(res);
-			//Go back to parent state
-	    	$state.go('^');
-		}).error(function(err) {console.log(err)});
+			
+			$("#createEventModal").modal();
+
+		}).error(function(err) {
+
+			$("#createErrorModal").modal();
+		});
 	}
 });

@@ -85,4 +85,12 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 
 	//Reload to fix ui-calendar
 	setTimeout(function() {$state.reload()}, 3000);
+
+	$scope.reloadState = function(state) {
+		//Go back to parent state and reload
+	    $state.go(state, {}, { reload: true });
+
+	    //Remove modal backdrop
+	    $('.modal-backdrop').remove();
+	}
 });
