@@ -16,9 +16,15 @@ loginApp.controller('loginCtrl', function($scope, $http, $window, $state, $uibMo
 
 	    		$window.location.href = '/main.html';
 
+			} else {
+
+				$("#signinErrorModal").modal();
 			}
 		
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#loginErrorModal").modal();
+		});
 	}
 
 	//Sign up for the admin portal
@@ -28,9 +34,12 @@ loginApp.controller('loginCtrl', function($scope, $http, $window, $state, $uibMo
 
 		$http.post('/signup', $scope.singupInfo).success(function(res) {
 
-			$state.go('signin');
+			$("#signupModal").modal();
 
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#loginErrorModal").modal();
+		});
 	}
 
 	//Reset Password
@@ -40,9 +49,25 @@ loginApp.controller('loginCtrl', function($scope, $http, $window, $state, $uibMo
 
 		$http.put('/updatePassord', $scope.updateUserInfo).success(function(res) {
 			
-			$window.location.href = '/login.html';
+			$("#forgotPasswordModal").modal();
 			
-		}).error(function(err) {console.log(err)});
+		}).error(function(err) {
+
+			$("#loginErrorModal").modal();
+		});
+	}
+
+	$scope.reloadState = function(state) {
+		$state.go(state);
+
+		//Remove modal backdrop
+	    $('.modal-backdrop').remove();
+	}
+
+	$scope.removeOverlay = function() {
+
+		//Remove modal backdrop
+	    $('.modal-backdrop').remove();
 	}
 
 });
