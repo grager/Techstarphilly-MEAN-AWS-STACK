@@ -1,6 +1,7 @@
 <div class="user-profile" ng-controller="userProfileCtrl">
 	<h4 class="user-profile__header">List of All Users</h4>
-	<table class="table table-striped user-profile__table">
+	<div class="pagination-wrapper">
+		<table class="table table-striped user-profile__table">
 		<thead class="thead-inverse">
 			<tr>
 				<th>Name</th>
@@ -10,13 +11,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="user in users" ng-click="getUserDetail(user.email)" ui-sref="userDetail" ui-sref-active="active">
+			<tr ng-repeat="user in users.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))" ng-click="getUserDetail(user.email)" ui-sref="userDetail" ui-sref-active="active">
 				<td>{{user.name}}</td>
 				<td>{{user.email}}</td>
 				<td>{{user.userGroup}}</td>
 				<td>{{user.admin}}</td>
 			</tr>
 		</tbody>
-	</table>
+		</table>
+	</div>
+	<div class="pagination-content">
+    	<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
+    </div>
 </div>
 

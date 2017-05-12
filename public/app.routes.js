@@ -95,6 +95,11 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             }
         })
 
+        .state('tests', {
+            url: '/tests',
+            templateUrl: 'components/tests/home.html'
+        })
+
 
     $locationProvider.html5Mode(true);
                 

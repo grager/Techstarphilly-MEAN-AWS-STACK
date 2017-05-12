@@ -14,6 +14,9 @@ testPortalApp.controller('userProfileCtrl', function($scope, $window, $http, use
 			} else {
 
 				$scope.users = res;
+
+				//Pagination
+				$scope.totalItems = res.length;
 				
 			}
 
@@ -31,4 +34,8 @@ testPortalApp.controller('userProfileCtrl', function($scope, $window, $http, use
 	}
 
 	$scope.getUserProfile();
+
+	//Pagination
+	$scope.itemsPerPage = 8;
+	$scope.currentPage = 1;
 });

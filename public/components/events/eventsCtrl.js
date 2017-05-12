@@ -12,11 +12,17 @@ testPortalApp.controller('eventsCtrl', function($scope, $window, $http) {
 
 			$scope.events = res;
 
+			//Pagination
+			$scope.totalItems = res.length;
 
 		}).error(function(res) {console.log(err)});
 	}
 
 	//Get all events
 	$scope.getAllEvents();
+
+	//Pagination
+	$scope.itemsPerPage = 6;
+	$scope.currentPage = 1;
 	
 });

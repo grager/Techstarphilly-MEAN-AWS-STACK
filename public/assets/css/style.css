@@ -179,6 +179,7 @@ body {
   bottom: 0;
   width: 600px;
   background: #fff;
+  z-index: 3;
 }
 .notification__top {
   height: 40px;
@@ -222,6 +223,9 @@ body {
 .pagination-content--ui {
   margin-right: 40px;
   float: right;
+}
+.pagination-wrapper {
+  height: 400px;
 }
 /*Bootstrap Pagination*/
 .pagination {
@@ -425,6 +429,12 @@ body {
   font-size: 18px;
 }
 .sidebar__menu-list-item .fa-university {
+  font-size: 15px;
+}
+.sidebar__menu-list-item .fa-calendar {
+  font-size: 15px;
+}
+.sidebar__menu-list-item .fa-quora {
   font-size: 15px;
 }
 .sidebar__menu-list-item.active {

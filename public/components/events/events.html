@@ -4,7 +4,8 @@
 			<h4 class="float-left">List of All Events</h4>
 			<button type="button" class="btn btn-danger float-right mb-2" ui-sref="events.createEvent" ui-sref-active="active"><i class="fa fa-pencil"></i> Create New Event</button>
 		</div>
-		<table class="table table-striped event-table">
+		<div class="pagination-wrapper">
+			<table class="table table-striped user-profile__table">
 			<thead class="thead-inverse">
 				<tr>
 					<th>Title</th>
@@ -17,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="event in events" ui-sref="events.editEvent({id: event.id})" ui-sref-active="active">
+				<tr ng-repeat="event in events.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))" ui-sref="events.editEvent({id: event.id})" ui-sref-active="active">
 					<td>{{event.title}}</td>
 					<td>{{event.content}}</td>
 					<td>{{event.url}}</td>
@@ -27,7 +28,11 @@
 					<td>{{event.endDate}}</td>
 				</tr>
 			</tbody>
-		</table>
+			</table>
+		</div>
+		<div class="pagination-content">
+	    	<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"></ul>
+	    </div>
 	</div>
 </div>
 
