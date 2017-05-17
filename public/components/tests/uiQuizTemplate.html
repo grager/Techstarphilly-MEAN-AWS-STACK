@@ -1,14 +1,16 @@
-<div class="content__block">
+<div class="content__block" ng-controller="uiQuizCtrl">
 	<div class="content__block-content">
 		<div class="card">
-		  <h3 class="card-header">Featured</h3>
+		  <h3 class="card-header">{{index + 1}}. {{questions.question}}</h3>
 		  <div class="card-block content__block--card">
-		    <h4 class="card-title">Special title treatment</h4>
-		    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		    <p class="content__block--card-text" ng-repeat="(option, value) in questions.anwsers">
+		    	<label><input type="radio" class="content__block--card-input" name="question" value="value"/>{{value}}</label>
+		    </p>
 		  </div>
 		  <div class="card-footer text-md-right">
-		  	<a href="#" class="btn btn-warning">Previous</a>
-		    <a href="#" class="btn btn-info">Next</a>
+		  	<a href="#" class="btn btn-warning" ng-hide="index == 0" ng-click="decrementIndex()">Previous</a>
+		    <a href="#" class="btn btn-info" ng-hide="index == length-1" ng-click="incrementIndex()">Next</a>
+		    <a href="#" class="btn btn-danger" ng-show="index == length-1" ng-click="submitQuiz()">Submit Quiz</a>
 		  </div>
 		</div>
 	</div>

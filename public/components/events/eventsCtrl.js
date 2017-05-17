@@ -1,4 +1,4 @@
-testPortalApp.controller('eventsCtrl', function($scope, $window, $http, $uibModal) {
+testPortalApp.controller('eventsCtrl', function($scope, $window, $http) {
 
 	$scope.getAllEvents = function() {
 
