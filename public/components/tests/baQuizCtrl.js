@@ -1,10 +1,10 @@
-testPortalApp.controller('uiQuizCtrl', function($scope, $window, $http) {
+testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 
 	$scope.index = 0;
 
 	$scope.getQuizSession = function() {
 
-		$http.get('/getUiQuizSession/' + $scope.session).success(function(res) {
+		$http.get('/getBaQuizSession/' + $scope.session).success(function(res) {
 			
 			$scope.lists = res;
 			$scope.length = res.length;
@@ -19,16 +19,14 @@ testPortalApp.controller('uiQuizCtrl', function($scope, $window, $http) {
 		$scope.index ++;
 		//Set the state
 		$scope.questions = $scope.lists[$scope.index];
+		
 	}
 
 	$scope.decrementIndex = function() {
 		$scope.index --;
 		//Set the state
 		$scope.questions = $scope.lists[$scope.index];
-	}
-
-	$scope.submitQuiz = function() {
-
+		
 	}
 
 	$scope.getQuizSession();

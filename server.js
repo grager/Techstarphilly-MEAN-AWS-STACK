@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // use morgan to log requests to the console
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 //configure our application
 //tell express where to look for static assets
@@ -42,6 +42,7 @@ app.use(require('./app/routes/files'));
 app.use(require('./app/routes/announcements'));
 app.use(require('./app/routes/events'));
 app.use(require('./app/routes/uiQuiz'));
+app.use(require('./app/routes/baQuiz'));
 
 app.all('/*', function(req, res) {
     // Just send the index.html for other files to support HTML5Mode

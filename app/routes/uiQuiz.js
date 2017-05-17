@@ -23,7 +23,7 @@ router.post('/saveuiQuiz', function(req, res) {
 	})
 });
 
-router.get('/getQuizSession/:session', function(req, res) {
+router.get('/getUiQuizSession/:session', function(req, res) {
 
 	UIQuizModel.find({"session": req.params.session}, function(err, quiz) {
 		if (err) res.send(err);

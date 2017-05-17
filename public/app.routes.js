@@ -120,6 +120,15 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/tests/baQuiz.html'
         })
 
+        .state('baQuizTemplate', {
+            url: '/baQuizTemplate/{session}',
+            templateUrl: 'components/tests/baQuizTemplate.html',
+            controller: function($scope, $stateParams) {
+                // get the id
+                $scope.session = $stateParams.session;   
+            }
+        })
+
         .state('uiQuiz', {
             url: '/uiQuiz',
             templateUrl: 'components/tests/uiQuiz.html'
