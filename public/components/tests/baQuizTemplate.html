@@ -3,12 +3,12 @@
     <div class="card">
       <h3 class="card-header">{{index + 1}}. {{questions.question}}</h3>
       <div class="card-block">
-        <textarea class="content__block--card-textarea"></textarea>
+        <textarea class="content__block--card-textarea" ng-model="anwser[index]"></textarea>
       </div>
       <div class="card-footer text-md-right">
         <a href="#" class="btn btn-warning" ng-hide="index == 0" ng-click="decrementIndex()">Previous</a>
         <a href="#" class="btn btn-info" ng-hide="index == length-1" ng-click="incrementIndex()">Next</a>
-        <a href="#" class="btn btn-danger" ng-show="index == length-1" ng-click="submitQuiz()">Submit Quiz</a>
+        <a href="#" class="btn btn-danger" ng-show="index == length-1" ng-click="previewQuiz()">Preview</a>
       </div>
     </div>
   </div>

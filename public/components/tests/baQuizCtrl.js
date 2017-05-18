@@ -2,6 +2,10 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 
 	$scope.index = 0;
 
+	$scope.anwser = [];
+
+	$scope.quizContent = [];
+
 	$scope.getQuizSession = function() {
 
 		$http.get('/getBaQuizSession/' + $scope.session).success(function(res) {
@@ -16,7 +20,15 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 	}
 
 	$scope.incrementIndex = function() {
+
+		//Get quiz content
+		$scope.quizContent[$scope.index] = {
+			title: $scope.lists[$scope.index].question,
+			anwser: $scope.anwser[$scope.index]
+		}
+
 		$scope.index ++;
+
 		//Set the state
 		$scope.questions = $scope.lists[$scope.index];
 		
@@ -24,9 +36,14 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 
 	$scope.decrementIndex = function() {
 		$scope.index --;
+
 		//Set the state
 		$scope.questions = $scope.lists[$scope.index];
-		
+				
+	}
+
+	$scope.previewQuiz = function() {
+		console.log($scope.quizContent);
 	}
 
 	$scope.getQuizSession();
