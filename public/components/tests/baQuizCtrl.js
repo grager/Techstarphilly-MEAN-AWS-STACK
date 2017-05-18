@@ -43,8 +43,27 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 	}
 
 	$scope.previewQuiz = function() {
-		console.log($scope.quizContent);
+
+		let username = JSON.parse($window.sessionStorage.getItem('authenticatedUser')).name;
+
+		let fileDetail = {
+			username: username,
+			session: $scope.session,
+			quizContent: $scope.quizContent
+		}
+
+		//Get quiz content
+		$scope.quizContent[$scope.index] = {
+			title: $scope.lists[$scope.index].question,
+			anwser: $scope.anwser[$scope.index]
+		}
+
+		$http.post('/generateBaQuizPDF', {fileDetail: fileDetail}).success(function(res) {
+			console.log(res);
+
+		}).error(function(err) {console.log(err)});
 	}
 
 	$scope.getQuizSession();
+
 });
