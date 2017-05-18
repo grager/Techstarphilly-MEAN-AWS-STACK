@@ -59,11 +59,18 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 		}
 
 		$http.post('/generateBaQuizPDF', {fileDetail: fileDetail}).success(function(res) {
-			console.log(res);
+
+			$('#previewFileModal').modal();
 
 		}).error(function(err) {console.log(err)});
 	}
 
+	$scope.submitQuiz = function() {
+
+	}
+
 	$scope.getQuizSession();
+
+	console.log(PDFObject);
 
 });

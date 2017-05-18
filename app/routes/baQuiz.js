@@ -40,7 +40,7 @@ router.post('/generateBaQuizPDF', function(req, res) {
 
 	let doc = new PDFDocument();
 
-	doc.fontSize(20).text('Here is a preview of you anwsers.').moveDown(2);
+	doc.fontSize(20).text(fileDetail.session).moveDown(2);
 
 	_.forEach(fileDetail.quizContent, function(key, value) {
 		//Write text to PDF file
