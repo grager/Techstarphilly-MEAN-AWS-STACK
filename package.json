@@ -21,6 +21,7 @@
     "morgan": "^1.8.1",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
+    "pdfkit": "^0.8.0",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
