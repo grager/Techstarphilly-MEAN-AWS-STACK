@@ -51,7 +51,7 @@ router.post('/generateBaQuizPDF', function(req, res) {
 
 	doc.end();
 
-	doc.pipe(fs.createWriteStream('app/files/'+ fileDetail.session +'_'+ fileDetail.username +'.pdf')).on('finish', function() {
+	doc.pipe(fs.createWriteStream('public/assets/files/'+ fileDetail.session +'_'+ fileDetail.username +'.pdf')).on('finish', function() {
 		
 		res.status(200).json('This pdf has been created.');
 

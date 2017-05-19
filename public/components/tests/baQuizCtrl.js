@@ -71,6 +71,4 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 
 	$scope.getQuizSession();
 
-	console.log(PDFObject);
-
 });
