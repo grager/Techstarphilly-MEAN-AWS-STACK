@@ -71,9 +71,7 @@ router.post('/sendEmailNotification',function(req, res) {
     });
 });
 
-router.post('/submitBAQuiz',function(req, res) {
-
-    console.log(req.body)
+router.post('/s3/submitBAQuiz',function(req, res) {
     
     let transporter = nodemailer.createTransport({
         service: 'gmail',

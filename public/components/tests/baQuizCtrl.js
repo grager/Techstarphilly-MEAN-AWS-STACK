@@ -78,7 +78,7 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 			filePath: $scope.filePath
 		}
 
-		$http.post('/submitBAQuiz', submitInfo).success(function(res) {
+		$http.post('/s3/submitBAQuiz', submitInfo).success(function(res) {
 			
 			$('#submitFileModal').modal();
 		}).error(function(err) {console.log(err)});

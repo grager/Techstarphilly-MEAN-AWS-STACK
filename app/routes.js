@@ -3,6 +3,8 @@ const express = require('express'),
 	  path = require('path'),
 	  router = express.Router(),
     jwt = require('jsonwebtoken'),
+    AWS = require('aws-sdk'),
+    fs = require('fs'),
 	  mongoose = require('mongoose');
 
 // export router
@@ -46,6 +48,51 @@ router.use('/api',function(req, res, next) {
     });
     
   }
+});
+
+// middleware to upload quiz content to S3
+router.use('/s3', function(req, res, next) {
+
+  fs.readFile(req.body.filePath, function(err, data) {
+
+    if (err) {
+
+      console.log(err);
+
+    } else {
+
+      let base64data = new Buffer(data, 'binary');
+
+      // Create an S3 client
+      let s3 = new AWS.S3({
+        signatureVersion: 'v4'
+      });
+
+      // Create a bucket and upload something into it
+      let params = {
+        Bucket: 'business-analyst-quiz-session', 
+        Key: req.body.fileName,
+        Body: base64data,
+        Expires: 60,
+        ContentType: 'application/pdf',
+        ACL: 'public-read'
+      };
+
+      s3.putObject(params, function(err, data) {
+
+        if (err) {
+
+          console.log(err);
+
+        } else {
+          console.log(data);
+          //Go to next function
+          next();
+        }
+      })
+
+    }
+  })
 });
 
 
