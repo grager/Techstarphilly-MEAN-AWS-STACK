@@ -94,6 +94,17 @@ body {
   background-repeat: no-repeat;
 }
 
+.modal__lg {
+  min-width: 800px;
+}
+.modal__fixed-height {
+  height: 700px;
+}
+.modal__object--pdf {
+  margin-top: 20px;
+  height: 500px;
+}
+
 .nav {
   position: fixed;
   top: 0;

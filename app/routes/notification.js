@@ -70,3 +70,36 @@ router.post('/sendEmailNotification',function(req, res) {
         res.status(200).send('Notification sent:' + info.response);
     });
 });
+
+router.post('/submitBAQuiz',function(req, res) {
+
+    console.log(req.body)
+    
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'techstarphillyinfo@gmail.com',
+            pass: 'karl111024'
+        }
+    });
+
+    let mailOptions = {
+        from: "techstarphillyinfo@gmail.com", // sender address
+        to: req.body.email, // list of receivers
+        cc: 'techstarphilly@gmail.com, karenmou9501@gmail.com',
+        subject: 'You have submitted the: ' + req.body.session, // Subject line
+        html: '<p>Here is an overview of the quiz.</p>',
+        attachments: [{  
+            filename: req.body.fileName,
+            path: req.body.filePath
+        }]
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+
+        res.status(200).send('Message sent:' + info.response);
+    });
+});

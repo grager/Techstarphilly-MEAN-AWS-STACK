@@ -60,13 +60,28 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 
 		$http.post('/generateBaQuizPDF', {fileDetail: fileDetail}).success(function(res) {
 
-			$('#previewFileModal').modal();
+			$scope.fileName = res.fileName;
+			$scope.filePath = res.filePath;
+
+			$('#previewFileModal').modal();			
 
 		}).error(function(err) {console.log(err)});
 	}
 
 	$scope.submitQuiz = function() {
+		let email = JSON.parse($window.sessionStorage.getItem('authenticatedUser')).email;
 
+		let submitInfo = {
+			email: email,
+			session: $scope.session,
+			fileName: $scope.fileName,
+			filePath: $scope.filePath
+		}
+
+		$http.post('/submitBAQuiz', submitInfo).success(function(res) {
+			
+			$('#submitFileModal').modal();
+		}).error(function(err) {console.log(err)});
 	}
 
 	$scope.getQuizSession();

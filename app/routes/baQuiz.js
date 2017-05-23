@@ -53,7 +53,12 @@ router.post('/generateBaQuizPDF', function(req, res) {
 
 	doc.pipe(fs.createWriteStream('public/assets/files/'+ fileDetail.session +'_'+ fileDetail.username +'.pdf')).on('finish', function() {
 		
-		res.status(200).json('This pdf has been created.');
+		res.status(200).json({
+			success: true,
+			mesage: 'This pdf has been created successfully.',
+			fileName: fileDetail.session+'_'+fileDetail.username +'.pdf',
+			filePath: 'public/assets/files/'+fileDetail.session+'_'+fileDetail.username +'.pdf'
+		});
 
 	}).on('error', function(err) {
 
