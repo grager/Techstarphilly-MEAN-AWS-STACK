@@ -4,10 +4,12 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 	$scope.notification.mapId = $scope.email;
 
-	$scope.sendNotification = function() {
+	$scope.sendNotification = function(isValid) {
 
 		//Get pre-signed url and upload file to S3
 		let file = document.getElementById('file-attachment').files[0];
+
+		if (file) {
 
 		$http.post('/uploadFiletoBucket',{ fileName: file.name, fileType: file.type }).success(function(url) {
 			
@@ -31,6 +33,12 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 			$("#notificationErrorModal").modal();
 		});
+
+		} else {
+
+			$("#formValidationModal").modal();
+		}
+
 	}
 
 	$scope.saveNotification = function() {
