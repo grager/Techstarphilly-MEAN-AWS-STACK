@@ -1,4 +1,4 @@
-testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
+testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state, $compile) {
 
 	$scope.user = JSON.parse($window.sessionStorage.getItem('authenticatedUser'));
 
@@ -42,6 +42,18 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 
 	$scope.generateCalendar = function() {
 
+		 /* Render Tooltip */
+	    $scope.eventRender = function( event, element, view ) { 
+	        element.attr({'tooltip': event.title,
+	                     'tooltip-append-to-body': true});
+	        $compile(element)($scope);
+	    };
+
+	    /*Go to Event Detail Page*/
+	    $scope.eventClick = function() {
+	    	$state.go('events');
+	    }
+
 		$scope.uiConfig = {
 	      calendar:{
 	        height: 650,
@@ -50,7 +62,9 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state) {
 	          left: 'month basicWeek basicDay agendaWeek agendaDay',
 	          center: 'title',
 	          right: 'today prev,next'
-	        }
+	        },
+	        eventRender: $scope.eventRender,
+	        eventClick: $scope.eventClick
 	      }
 	    }
 
