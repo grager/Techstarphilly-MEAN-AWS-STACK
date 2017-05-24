@@ -1,7 +1,7 @@
 <div class="user-profile" ng-controller="eventsCtrl">
 	<div class="user-profile__header">
 		<h4 class="float-left">List of All Events</h4>
-		<button type="button" class="btn btn-danger float-right mb-2" ui-sref="events.createEvent" ui-sref-active="active"><i class="fa fa-pencil"></i> Create New Event</button>
+		<button type="button" class="btn btn-danger float-right mb-2" ui-sref="events.createEvent" ui-sref-active="active" ng-show="adminRight"><i class="fa fa-pencil"></i> Create New Event</button>
 	</div>	
 	<div class="pagination-wrapper">
 		<table class="table table-striped user-profile__table">

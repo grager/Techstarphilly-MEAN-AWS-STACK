@@ -36,7 +36,7 @@
 	</div>
 	<div class="notification__bottom">
 		<button type="button" class="btn btn-warning" ng-click="cancelEditEvent()"><i class="fa fa-times"></i> Cancel</button>
-    	<button type="submit" class="btn btn-info" ng-click="saveEditEvent()"><i class="fa fa-check"></i> Save</button>
+    	<button type="submit" class="btn btn-info" ng-click="saveEditEvent()" ng-disabled="!adminRight"><i class="fa fa-check"></i> Save</button>
 	</div>
 </div>
 

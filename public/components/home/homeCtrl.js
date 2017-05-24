@@ -2,6 +2,8 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state, $c
 
 	$scope.user = JSON.parse($window.sessionStorage.getItem('authenticatedUser'));
 
+	$scope.adminRight = $scope.user.admin;
+
 	$scope.verifyToken = function() {
 
 		let token = $window.sessionStorage.getItem('token');
