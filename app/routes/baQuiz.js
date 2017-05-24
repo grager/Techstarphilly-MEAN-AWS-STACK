@@ -11,9 +11,9 @@ module.exports = router;
 
 router.post('/savebaQuiz', function(req, res) {
 	let baQuizModel = new BAQuizModel({
-		question: 'List some of documentations a BA might need to write in a project.',
+		question: 'Please wrote one test cases in your previous project.',
 		category: 'ba',
-		session: 'quiz1'
+		session: 'quiz3'
 	});
 
 	baQuizModel.save(function(err) {
@@ -50,6 +50,8 @@ router.post('/generateBaQuizPDF', function(req, res) {
 	});
 
 	doc.end();
+
+	console.log(fileDetail.session);
 
 	doc.pipe(fs.createWriteStream('public/assets/files/'+ fileDetail.session +'_'+ fileDetail.username +'.pdf')).on('finish', function() {
 		

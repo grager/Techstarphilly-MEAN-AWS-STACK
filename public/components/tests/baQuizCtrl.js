@@ -6,6 +6,8 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 
 	$scope.quizContent = [];
 
+	$scope.fileOwner = JSON.parse($window.sessionStorage.getItem('authenticatedUser')).name;
+
 	$scope.getQuizSession = function() {
 
 		$http.get('/getBaQuizSession/' + $scope.session).success(function(res) {
@@ -69,6 +71,7 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 	}
 
 	$scope.submitQuiz = function() {
+
 		let email = JSON.parse($window.sessionStorage.getItem('authenticatedUser')).email;
 
 		let submitInfo = {
