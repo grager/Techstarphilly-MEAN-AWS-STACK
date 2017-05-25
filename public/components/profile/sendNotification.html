@@ -1,7 +1,13 @@
 <div class="notification" ng-controller="notificationCtrl">
-	<div class="notification__top"><h4>Notification</h4></div>
+	<div class="notification__top"><h4><span ng-show="groupFlag">Group</span> Notification</h4></div>
 	<div class="notification__content">
+
 		<form class="notification__form">
+      <div class="form-group" ng-show="groupFlag">
+        <label for="group">Group</label>
+        <select class="form-control" id="group" ng-model="groupname" ng-options="groupName as groupName for groupName in groupNames" ng-change="getUserEmailList()" placeholder="Select a group">      
+        </select>
+      </div>
       <div class="form-group">
         <label for="title">Title</label>
         <input class="form-control" type="text" id="title" ng-model="notification.title">

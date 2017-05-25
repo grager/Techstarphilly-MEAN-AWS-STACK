@@ -1,10 +1,39 @@
 testPortalApp.controller('notificationCtrl', function($scope, $state, $http) { 
-
+	
+	//Set the flag if notification to single user or target group
+	$scope.email != undefined ? $scope.groupFlag = false : $scope.groupFlag = true;
+	
 	$scope.notification = {};
 
 	$scope.notification.mapId = $scope.email;
 
-	$scope.sendNotification = function(isValid) {
+	//Get User Group
+	$scope.getUserGroup = function() {
+
+		$http.get('/getUserGroup').success(function(res) {
+
+			$scope.groupNames = res;
+
+		}).error(function(err) {console.log(err)});
+	}
+
+	//Get all users in target Group 
+	$scope.getUserEmailList = function(data) {
+
+		$http.post('/getUserEmails', {userGroup: $scope.groupname}).success(function(res) {
+			
+			let mapEmail = [];
+
+			_.forEach(res, function(value, key) {
+				mapEmail.push(value.email);
+			});
+
+			$scope.notification.mapId = mapEmail.join(',');
+		
+		}).error(function(err) {console.log(err)});
+	}
+
+	$scope.sendNotification = function() {
 
 		//Get pre-signed url and upload file to S3
 		let file = document.getElementById('file-attachment').files[0];
@@ -84,4 +113,6 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 			$("#notificationErrorModal").modal();
 		});
 	}
+
+	$scope.getUserGroup();
 });

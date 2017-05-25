@@ -32,6 +32,26 @@ router.get('/api/getAllUsers', function(req, res) {
     });
 });
 
+//Get all user group
+router.get('/getUserGroup', function(req, res) {
+	UserModel.distinct('userGroup', function(err, group) {
+		if (err) res.send(err);
+
+		res.send(group);
+	})
+});
+
+//Get list of user emails for target group
+router.post('/getUserEmails', function(req, res) {
+
+	UserModel.find({userGroup: req.body.userGroup}, function(err, user) {
+		
+		if (err) res.send(err);
+		
+		res.send(user);
+	});
+});
+
 //Get user detail
 router.post('/getUserDetail', function(req, res) {
 

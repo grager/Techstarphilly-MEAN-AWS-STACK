@@ -77,6 +77,11 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/profile/userProfile.html'
         })
 
+        .state('userProfile.sendGroupNotification', {
+            url: '/sendGroupNotification',
+            templateUrl: 'components/profile/sendNotification.html'
+        })
+
         .state('userDetail', {
             url: '/userDetail',
             templateUrl: 'components/profile/userDetail.html'
