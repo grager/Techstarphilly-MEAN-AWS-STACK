@@ -36,7 +36,7 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 		} else {
 
-			$("#formValidationModal").modal();
+			$scope.sendEmailNotificationNoFile($scope.notification);
 		}
 
 	}
@@ -63,6 +63,19 @@ testPortalApp.controller('notificationCtrl', function($scope, $state, $http) {
 
 		//Send email from techstarphillyinfo@gmail.com
 		$http.post('/sendEmailNotification', data).success(function(res) {
+			
+			$("#sendNotificationModal").modal();
+
+		}).error(function(err) {
+			
+			$("#notificationErrorModal").modal();
+		});
+	}
+
+	$scope.sendEmailNotificationNoFile = function(data) {
+
+		//Send email from techstarphillyinfo@gmail.com without attachment
+		$http.post('/sendEmailNotificationNoFile', data).success(function(res) {
 			
 			$("#sendNotificationModal").modal();
 

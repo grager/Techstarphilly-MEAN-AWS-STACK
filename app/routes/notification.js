@@ -71,6 +71,35 @@ router.post('/sendEmailNotification',function(req, res) {
     });
 });
 
+router.post('/sendEmailNotificationNoFile',function(req, res) {
+    
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'techstarphillyinfo@gmail.com',
+            pass: 'karl111024'
+        }
+    });
+
+    let mailOptions = {
+        from: "techstarphillyinfo@gmail.com", // sender address
+        to: req.body.mapId, // list of receivers
+        cc: 'techstarphilly@gmail.com, karenmou9501@gmail.com',
+        subject: 'You have one notification from the TechStarPhilly', // Subject line
+        html: '<p>'+ req.body.title +'</p>'+
+              '<p>'+ req.body.subTitle +'</p>'+ 
+              '<p>'+ req.body.body +'</p>'
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+
+        res.status(200).send('Notification sent:' + info.response);
+    });
+});
+
 router.post('/s3/submitBAQuiz',function(req, res) {
     
     let transporter = nodemailer.createTransport({
