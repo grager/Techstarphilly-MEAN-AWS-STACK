@@ -108,6 +108,23 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state, $c
 	//Reload to fix ui-calendar
 	setTimeout(function() {$state.reload()}, 3000);
 
+	//Set entitlement for tests
+
+	$scope.getQuizEntitlement = function() {
+
+		let user = JSON.parse($window.sessionStorage.getItem('authenticatedUser'));
+
+		$http.post('/getUserBaQuizStatus', {email: user.email}).success(function(res) {
+
+			$scope.quizOneStatus = res.quiz[0].quiz1;
+			$scope.quizTwoStatus = res.quiz[1].quiz2;
+			$scope.quizThreeStatus = res.quiz[2].quiz3;
+		
+		}).error(function(err) {console.log(err)});
+	}
+
+	$scope.getQuizEntitlement();
+
 	$scope.reloadState = function(state) {
 
 		//Go back to parent state and reload

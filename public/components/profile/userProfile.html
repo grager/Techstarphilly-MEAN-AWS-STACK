@@ -9,6 +9,9 @@
 				<th>Email</th>
 				<th>User Group</th>
 				<th>Admin</th>
+				<th>Test One</th>
+				<th>Test Two</th>
+				<th>Test Three</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -17,6 +20,24 @@
 				<td>{{user.email}}</td>
 				<td>{{user.userGroup}}</td>
 				<td>{{user.admin}}</td>
+				<td>{{user.quiz[0].quiz1}}
+					<div>
+						<button class="btn-warning">Disable</button>
+						<button class="btn-success">Enable</button>
+					</div>
+				</td>
+				<td>{{user.quiz[1].quiz2}}
+					<div>
+						<button class="btn-warning">Disable</button>
+						<button class="btn-success">Enable</button>
+					</div>
+				</td>
+				<td>{{user.quiz[2].quiz3}}
+					<div>
+						<button class="btn-warning">Disable</button>
+						<button class="btn-success">Enable</button>
+					</div>
+				</td>
 			</tr>
 		</tbody>
 		</table>

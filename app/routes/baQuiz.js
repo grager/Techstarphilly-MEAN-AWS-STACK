@@ -2,6 +2,7 @@
 const express = require('express'),
 	  router = express.Router(),
 	  BAQuizModel = require('../models/baQuiz'),
+	  UserModel   = require('../models/users');
 	  _ = require('lodash'),
 	  fs = require('fs'),
 	  PDFDocument = require('pdfkit');
@@ -51,8 +52,6 @@ router.post('/generateBaQuizPDF', function(req, res) {
 
 	doc.end();
 
-	console.log(fileDetail.session);
-
 	doc.pipe(fs.createWriteStream('public/assets/files/'+ fileDetail.session +'_'+ fileDetail.username +'.pdf')).on('finish', function() {
 		
 		res.status(200).json({
@@ -68,3 +67,15 @@ router.post('/generateBaQuizPDF', function(req, res) {
 	});
 
 });
+
+//Get User Quiz Status
+router.post('/getUserBaQuizStatus', function(req, res) {
+	
+	UserModel.findOne({email: req.body.email}, function(err, user) {
+		if (err) res.send(err);
+
+		res.send(user);
+	});
+})
+
+

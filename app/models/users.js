@@ -17,7 +17,8 @@ var userSchema = mongoose.Schema({
     admin: {
     	type: Boolean,
     	default: false
-    } 
+    },
+    quiz: Array
 });
 
 module.exports = mongoose.model('userModel', userSchema);
