@@ -3,7 +3,7 @@ testPortalApp.controller('fileCtrl', function($scope, $window, $http) {
 
 	$scope.getAllFiles = function() {
 
-		$http.get('/getListOfFiles').success(function(res) {
+		$http.get('/getListOfFiles/' + $scope.week).success(function(res) {
 
 			$scope.files = res.Contents;
 
@@ -16,7 +16,7 @@ testPortalApp.controller('fileCtrl', function($scope, $window, $http) {
 
 		let fileName = {"fileName": data};
 
-		$http.post('/getSignedUrl', fileName).success(function(res) {
+		$http.post('/getSignedUrl/' + $scope.week, fileName).success(function(res) {
 
 			$window.open(res, '_blank');
 

@@ -44,11 +44,11 @@ router.get('/uploadUIResume', function(req, res) {
 	});
 });
 
-router.get('/getListOfFiles', function(req, res) {
+router.get('/getListOfFiles/:week', function(req, res) {
 	
 	let s3 = new AWS.S3();
 
-	let bucketName = 'web-developer';
+	let bucketName = 'business-analyst-' + req.params.week;
 
 	s3.listObjects({Bucket: bucketName}, function(err, data) {
 		
@@ -59,12 +59,12 @@ router.get('/getListOfFiles', function(req, res) {
 
 });
 
-router.post('/getSignedUrl', function(req, res) {
+router.post('/getSignedUrl/:week', function(req, res) {
 
 	let s3 = new AWS.S3();
 
-	let params = {Bucket: 'web-developer', Key: req.body.fileName};
-		
+	let params = {Bucket: 'business-analyst-' + req.params.week, Key: req.body.fileName};
+
 	let	signedUrl = s3.getSignedUrl('getObject', params, function(err, url) {
 		
 		if (err) res.send(err);

@@ -67,6 +67,15 @@ testPortalApp.config(function($stateProvider, $urlRouterProvider, $locationProvi
             templateUrl: 'components/files/ba.html'
         })
 
+        .state('filesbaGrid', {
+            url: '/filesba/{week}',
+            templateUrl: 'components/files/baFileGrid.html',
+            controller: function($scope, $stateParams) {
+                // get the week
+                $scope.week = $stateParams.week;   
+            }
+        })
+
         .state('filesui', {
             url: '/filesui',
             templateUrl: 'components/files/ui.html'
