@@ -81,15 +81,9 @@
                         </a>
                     </li>
                     <li class="sidebar__menu-list">
-                        <a class="sidebar__menu-list-item" ui-sref="mockInterview" ui-sref-active="active">
-                            <i class="fa fa-university"></i>Mock Interview
+                        <a class="sidebar__menu-list-item" ui-sref="events" ui-sref-opts="{reload: true}" ui-sref-active="active">
+                            <i class="fa fa-calendar"></i><span>Events</span>
                         </a>
-                        <ul class="sidebar__sub-menu">
-                          <li class="sidebar__sub-menu-list"><a class="sidebar__sub-menu-list-item" ui-sref="baHome" ui-sref-active="active">
-                          <i class="fa fa-bar-chart"></i>Business Analyst</a></li>
-                          <li class="sidebar__sub-menu-list"><a class="sidebar__sub-menu-list-item" ui-sref="uiHome" ui-sref-active="active">
-                          <i class="fa fa-cogs"></i>Web Developer</a></li>  
-                        </ul>
                     </li>
                     <li class="sidebar__menu-list">
                         <a class="sidebar__menu-list-item" ui-sref="files" ui-sref-active="active">
@@ -102,16 +96,6 @@
                           <i class="fa fa-cogs"></i>Web Developer</a></li>  
                         </ul>
                     </li>
-                    <li class="sidebar__menu-list" ng-show="adminRight">
-                        <a class="sidebar__menu-list-item" ui-sref="userProfile" ui-sref-active="active">
-                            <i class="fa fa-user"></i>User Profile
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-list">
-                        <a class="sidebar__menu-list-item" ui-sref="events" ui-sref-opts="{reload: true}" ui-sref-active="active">
-                            <i class="fa fa-calendar"></i><span>Manage Events</span>
-                        </a>
-                    </li>
                     <li class="sidebar__menu-list">
                         <a class="sidebar__menu-list-item" ui-sref="baQuiz" ui-sref-opts="{reload: true}" ui-sref-active="active">
                             <i class="fa fa-quora"></i><span>Test Center</span>
@@ -122,6 +106,22 @@
                           <li class="sidebar__sub-menu-list"><a class="sidebar__sub-menu-list-item" ui-sref="uiQuiz" ui-sref-active="active">
                           <i class="fa fa-cogs"></i>Web Developer</a></li>  
                         </ul>-->
+                    </li>
+                    <li class="sidebar__menu-list">
+                        <a class="sidebar__menu-list-item" ui-sref="mockInterview" ui-sref-active="active">
+                            <i class="fa fa-university"></i>Mock Interview
+                        </a>
+                        <ul class="sidebar__sub-menu">
+                          <li class="sidebar__sub-menu-list"><a class="sidebar__sub-menu-list-item" ui-sref="baHome" ui-sref-active="active">
+                          <i class="fa fa-bar-chart"></i>Business Analyst</a></li>
+                          <li class="sidebar__sub-menu-list"><a class="sidebar__sub-menu-list-item" ui-sref="uiHome" ui-sref-active="active">
+                          <i class="fa fa-cogs"></i>Web Developer</a></li>  
+                        </ul>
+                    </li>                    
+                    <li class="sidebar__menu-list" ng-show="adminRight">
+                        <a class="sidebar__menu-list-item" ui-sref="userProfile" ui-sref-active="active">
+                            <i class="fa fa-user"></i>User Profile
+                        </a>
                     </li>
                 </ul>
             </div>
