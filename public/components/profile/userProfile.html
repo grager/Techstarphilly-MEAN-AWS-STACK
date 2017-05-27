@@ -77,11 +77,11 @@
         </button>
       </div>
       <div class="modal-body">
-        Do you want to enable this quiz?.
+        Do you want to enable this quiz?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary" ng-click="updateEnableTest(); reloadState('userProfile')" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-primary" ng-click="updateEnableTest()" data-dismiss="modal">Yes</button>
       </div>
     </div>
   </div>
@@ -96,11 +96,29 @@
         </button>
       </div>
       <div class="modal-body">
-        Do you want to disable this quiz?.
+        Do you want to disable this quiz?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary" ng-click="updateDisableTest(); reloadState('userProfile')" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-primary" ng-click="updateDisableTest()" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="updateTestModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reloadState('userProfile')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        The status has been updated successfully.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="reloadState('userProfile')">Ok</button>
       </div>
     </div>
   </div>

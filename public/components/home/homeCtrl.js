@@ -146,7 +146,8 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state, $c
 
 		$http.put('/enableTestCase', enableTest).success(function(res) {
 			
-			console.log(res);
+			$("#updateTestModal").modal();
+
 		}).error(function(err) {console.log(err)});
 	}
 
@@ -159,7 +160,8 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state, $c
 		
 		$http.put('/disableTestCase', disableTest).success(function(res) {
 			
-			console.log(res);
+			$("#updateTestModal").modal();
+			
 		}).error(function(err) {console.log(err)});
 
 	}
