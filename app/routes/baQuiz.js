@@ -78,4 +78,49 @@ router.post('/getUserBaQuizStatus', function(req, res) {
 	});
 })
 
+//Enable Test Case
+router.put('/enableTestCase', function(req, res) {
+
+	let quizSession = req.body.quizSession;
+
+	UserModel.findOne({email: req.body.email}, function(err, user) {
+
+		_.forEach(user.quiz, function(key, value) {
+			
+			if (Object.getOwnPropertyNames(key)[0] == quizSession) {
+				user.quiz[value][quizSession] = 'Ready';
+				console.log(user);
+				user.save(function(err) {
+					if (err) res.send(err);
+					res.json('The test case has been changed.')
+				});
+			}
+		});
+
+	});
+});
+
+//Disable Test Case
+router.put('/disableTestCase', function(req, res) {
+
+	let quizSession = req.body.quizSession;
+
+	UserModel.findOne({email: req.body.email}, function(err, user) {
+		
+		_.forEach(user.quiz, function(key, value) {
+			
+			if (Object.getOwnPropertyNames(key)[0] == quizSession) {
+				user.quiz[value][quizSession] = 'Not started';
+				console.log(user);
+				user.save(function(err) {
+					if (err) res.send(err);
+					res.json('The test case has been changed.')
+				});
+			}
+		});
+	});
+});
+
+
+
 

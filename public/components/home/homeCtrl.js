@@ -125,6 +125,45 @@ testPortalApp.controller('homeCtrl', function($scope, $window, $http, $state, $c
 
 	$scope.getQuizEntitlement();
 
+	$scope.enableTestCase = function(data,user) {
+		$("#enableTestModal").modal();
+		$scope.enableTestSession = data;
+		$scope.enableUserTest = user;
+	}
+
+	$scope.disableTestCase = function(data, user) {
+		$("#disableTestModal").modal();
+		$scope.disableTestSession = data;
+		$scope.disableUserTest = user;
+	}
+
+	$scope.updateEnableTest = function() {
+
+		let enableTest = {
+			email: $scope.enableUserTest,
+			quizSession: $scope.enableTestSession
+		}
+
+		$http.put('/enableTestCase', enableTest).success(function(res) {
+			
+			console.log(res);
+		}).error(function(err) {console.log(err)});
+	}
+
+	$scope.updateDisableTest = function() {
+
+		let disableTest = {
+			email: $scope.disableUserTest,
+			quizSession: $scope.disableTestSession
+		}
+		
+		$http.put('/disableTestCase', disableTest).success(function(res) {
+			
+			console.log(res);
+		}).error(function(err) {console.log(err)});
+
+	}
+
 	$scope.reloadState = function(state) {
 
 		//Go back to parent state and reload
