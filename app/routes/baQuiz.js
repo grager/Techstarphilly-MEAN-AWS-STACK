@@ -2,7 +2,7 @@
 const express = require('express'),
 	  router = express.Router(),
 	  BAQuizModel = require('../models/baQuiz'),
-	  UserModel   = require('../models/users');
+	  UserModel   = require('../models/users'),
 	  _ = require('lodash'),
 	  fs = require('fs'),
 	  PDFDocument = require('pdfkit');
@@ -88,8 +88,11 @@ router.put('/enableTestCase', function(req, res) {
 		_.forEach(user.quiz, function(key, value) {
 			
 			if (Object.getOwnPropertyNames(key)[0] == quizSession) {
+				
 				user.quiz[value][quizSession] = 'Ready';
-				console.log(user);
+
+				user.quiz.set(value, user.quiz[value]);
+				
 				user.save(function(err) {
 					if (err) res.send(err);
 					res.json('The test case has been changed.')
@@ -110,8 +113,11 @@ router.put('/disableTestCase', function(req, res) {
 		_.forEach(user.quiz, function(key, value) {
 			
 			if (Object.getOwnPropertyNames(key)[0] == quizSession) {
+				
 				user.quiz[value][quizSession] = 'Not started';
-				console.log(user);
+
+				user.quiz.set(value, user.quiz[value]);
+				
 				user.save(function(err) {
 					if (err) res.send(err);
 					res.json('The test case has been changed.')
