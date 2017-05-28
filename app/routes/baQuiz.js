@@ -127,6 +127,30 @@ router.put('/disableTestCase', function(req, res) {
 	});
 });
 
+//Disable Test Case
+router.put('/completeTestCase', function(req, res) {
+
+	let quizSession = req.body.quizSession;
+
+	UserModel.findOne({email: req.body.email}, function(err, user) {
+		
+		_.forEach(user.quiz, function(key, value) {
+			
+			if (Object.getOwnPropertyNames(key)[0] == quizSession) {
+				
+				user.quiz[value][quizSession] = 'Completed';
+
+				user.quiz.set(value, user.quiz[value]);
+				
+				user.save(function(err) {
+					if (err) res.send(err);
+					res.json('The test case has been completed.')
+				});
+			}
+		});
+	});
+});
+
 
 
 

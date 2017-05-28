@@ -84,8 +84,30 @@ testPortalApp.controller('baQuizCtrl', function($scope, $window, $http) {
 		$http.post('/s3/submitBAQuiz', submitInfo).success(function(res) {
 			
 			$('#submitFileModal').modal();
+
+			//Change test status
+			$scope.completeTest();
+			
 		}).error(function(err) {console.log(err)});
 	}
+
+	$scope.completeTest = function() {
+
+		let email = JSON.parse($window.sessionStorage.getItem('authenticatedUser')).email;
+
+		let completeTest = {
+			email: email,
+			quizSession: $scope.session
+		}
+		
+		$http.put('/completeTestCase', completeTest).success(function(res) {
+			
+			console.log(res);
+			
+		}).error(function(err) {console.log(err)});
+
+	}
+
 
 	$scope.getQuizSession();
 
