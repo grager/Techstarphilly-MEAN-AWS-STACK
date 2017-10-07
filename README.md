@@ -11,11 +11,10 @@ http://www.techstarphilly.com
 This website is using Angular JS, Node JS, MongoDB with some AWS services such S3, EC2.
 
 # Running 
-Steps to run the application in the local:
+Steps to run the application in the local (Need db access and aws credentials):
 1. Download the repository
 2. npm install
 3. grunt
-(Need db access and aws credentials to run the app in the local)
 
 # Quick Look Home
 ![Alt text](/app/images/home.png?raw=true "Optional Title")
